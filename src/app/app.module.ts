@@ -7,13 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
       TopBarComponent,
       TodoListComponent,
-      TodoFormComponent
+      TodoFormComponent,
+      AboutComponent
    ],
   imports: [
     BrowserModule,
