@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Todo } from '../todos'
 import {FormControl} from '@angular/forms';
+import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
@@ -8,12 +9,23 @@ import {FormControl} from '@angular/forms';
 })
 export class TodoFormComponent implements OnInit {
   
+  titleInput=new FormControl();
   descriptionInput = new FormControl();
-  constructor() { }
+
+  constructor(
+    private todoservice: TodoService
+    ) { }
   
   ngOnInit() {
   }
   addTodo(){
-    console.log(this.descriptionInput.value)
+    const todo: Todo={
+      id: this.todoservice.getTodos().length+1,
+      title: this.titleInput.value,
+      description: this.descriptionInput.value,
+      completed:false,
+
+    }
+    this.todoservice.addTodo(todo);
   }
 }
