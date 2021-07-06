@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserStorageService } from '../user-storage.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-
-  constructor() { }
-
+  isLogin=false;
+  name?:string;
+  constructor(
+    private userstorageservice: UserStorageService
+  ) { }
+  
   ngOnInit() {
+    this.isLogin=!!this.userstorageservice.getToken();
+    if(this.isLogin){
+      const user=this.userstorageservice.getUser();
+      this.name=user.name;
+      console.log(this.name)
+    }
   }
-
+  logout(): void {
+    this.userstorageservice.signOut();
+    this.isLogin=false;
+    window.location.reload();
+  }
 }

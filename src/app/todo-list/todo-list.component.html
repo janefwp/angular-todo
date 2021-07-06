@@ -14,6 +14,7 @@
   <thead>
   <tr>
     <th scope="col">#</th>
+    <th scope="col">Title</th>
     <th scope="col">Description</th>
     <th scope="col">Completed</th>
     <th scope="col">Operate</th>
@@ -22,6 +23,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let todo of todos">
+      <td>{{todo.title}}</td>
       <td>{{todo.id}}</td>
       <td>{{todo.description}}</td>
       <td>{{todo.completed}}</td>
