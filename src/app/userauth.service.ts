@@ -7,11 +7,13 @@ const AUTH_API = 'https://api-nodejs-todolist.herokuapp.com/user/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-// const config = {
-//   headers: {
-//       'Content-type': 'application/json'
-//   }
-// };
+const token=window.sessionStorage.getItem('auth-token');
+const httpOptionswithToken = {
+  headers: new HttpHeaders({ 
+    'Authorization': "Bearer " +token, 
+    'Content-Type': 'application/json'
+   })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +36,9 @@ export class UserauthService {
       "password":password,
       "age":age
     }, httpOptions);
+  }
+  getUserInfo(): Observable<any>{
+    return this.http.get(AUTH_API+'me',httpOptionswithToken)
   }
 
 }
