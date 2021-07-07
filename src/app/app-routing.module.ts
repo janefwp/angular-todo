@@ -4,12 +4,15 @@ import { TodoListComponent } from './todo-list/todo-list.component'
 import { AboutComponent } from './about/about.component'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginGuard } from './login.guard';
 
 const routes: Routes = [
-  { path:'', component: TodoListComponent},
+  { path:'', component: TodoListComponent,canActivate:[LoginGuard]},
   { path: 'about', component: AboutComponent},
   { path: 'login', component:LoginComponent},
-  { path: 'register', component:RegisterComponent}
+  { path: 'register', component:RegisterComponent},
+  { path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

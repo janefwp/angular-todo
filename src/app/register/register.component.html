@@ -22,6 +22,12 @@
     <p>Already a member?
       <a href="" routerLink="/login">Login</a>
     </p>
+    <div class="alert alert-warning" *ngIf="isSignUpFailed">
+      Signup failed!<br />{{ errorMessage }}
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
   </form>
   
   </div>

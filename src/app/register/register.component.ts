@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit {
     password: new FormControl(),
     age: new FormControl()
   });
-  
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   constructor(
     private userauthservice: UserauthService
   ) { }
@@ -27,7 +29,14 @@ export class RegisterComponent implements OnInit {
     const {name, email,password,age}=this.registerForm.value
     this.userauthservice.register(name, email,password, age).subscribe(
       data=>{
-        console.log(data)
+        console.log(data);
+        this.isSuccessful=true;
+        this.isSignUpFailed=false;
+      },
+      err=>{
+        console.log(err)
+        this.errorMessage=err.error;
+        this.isSignUpFailed=true;
       }
     )
   }

@@ -11,16 +11,18 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [						
+  declarations: [							
     AppComponent,
       TopBarComponent,
       TodoListComponent,
       TodoFormComponent,
       AboutComponent,
       LoginComponent,
-      RegisterComponent
+      RegisterComponent,
+      ProfileComponent
    ],
   imports: [
     BrowserModule,

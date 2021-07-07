@@ -11,7 +11,8 @@ export class TodoFormComponent implements OnInit {
   
   titleInput=new FormControl();
   descriptionInput = new FormControl();
-
+  isAddSuccessful = false;
+  addErrorMessage="";
   constructor(
     private todoservice: TodoService
     ) { }
@@ -20,12 +21,21 @@ export class TodoFormComponent implements OnInit {
   }
   addTodo(){
     const todo: Todo={
-      id: this.todoservice.getTodos().length+1,
+      id:0,
       title: this.titleInput.value,
       description: this.descriptionInput.value,
       completed:false,
-
     }
-    this.todoservice.addTodo(todo);
+    this.todoservice.addTodo(todo).subscribe(
+      data=>{
+        console.log(data);
+        this.isAddSuccessful=true;
+      },
+      err=>{
+        console.log(err)
+        this.addErrorMessage=err.error;
+        this.isAddSuccessful=false;
+      }
+    );
   }
 }

@@ -8,17 +8,15 @@ export interface Todo {
   export const todos = [
     {
       id: 1,
+      title:'read angular docs',
       description: 'read angular docs',
       completed: false
     },
     {
       id: 2,
+      title: 'create a sample app',
       description: 'create a sample app',
       completed: false
     },
-    {
-      id: 3,
-      description: 'test the app',
-      completed: false
-    }
+
   ];
