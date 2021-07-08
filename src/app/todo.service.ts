@@ -26,6 +26,7 @@ export class TodoService {
   addTodo(todo:Todo): Observable<any> {
     const description =JSON.stringify(todo);
     return this.http.post(API_PATH,{"description":description},httpOptions)
+    
     // this.todos.push(todo);
   }
   getTodos():Observable<any>{

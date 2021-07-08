@@ -14,10 +14,11 @@ export class TodoListComponent implements OnInit {
     ){ }
 
   todos: Todo[]=[];
-  
+  isAddSuccessful=false;
   isGetSuccessful=false;
   isDelSuccessful=false;
   isUpdateSuccessful=false;
+  addErrorMessage="";
   getErrorMessage="";
   delErrorMessage="";
   updateErrorMesage="";
@@ -25,6 +26,28 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.getTodos();
   }
+
+  addTodo(todo:Todo){
+    
+    this.todoservice.addTodo(todo).subscribe(
+      data=>{
+        console.log(data);
+        console.log(data.data.completed);
+        console.log(data.data._id)
+        let newtodo:Todo=todo;
+        newtodo.id=data.data._id;
+        newtodo.completed=data.data.completed;
+        this.todos.push(newtodo);
+        this.isAddSuccessful=true;
+      },
+      err=>{
+        console.log(err)
+        this.addErrorMessage=err.error;
+        this.isAddSuccessful=false;
+      }
+    );
+  }
+
   getTodos(){
     this.todoservice.getTodos().subscribe(
       data=>{
@@ -49,6 +72,8 @@ export class TodoListComponent implements OnInit {
       data=>{
         console.log(data)
         this.isDelSuccessful=true;
+        let index:number=this.todos.findIndex(item=>todo.id===item.id);
+        this.todos.splice(index,1);
       },
       err=>{
         console.log(err)

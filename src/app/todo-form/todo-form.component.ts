@@ -2,13 +2,15 @@ import { Component, OnInit} from '@angular/core';
 import { Todo } from '../todos'
 import {FormControl} from '@angular/forms';
 import { TodoService } from '../todo.service';
+import { Output, EventEmitter } from '@angular/core';
+
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-  
+  @Output() newItemEvent = new EventEmitter<Todo>();
   titleInput=new FormControl();
   descriptionInput = new FormControl();
   isAddSuccessful = false;
@@ -26,16 +28,17 @@ export class TodoFormComponent implements OnInit {
       description: this.descriptionInput.value,
       completed:false,
     }
-    this.todoservice.addTodo(todo).subscribe(
-      data=>{
-        console.log(data);
-        this.isAddSuccessful=true;
-      },
-      err=>{
-        console.log(err)
-        this.addErrorMessage=err.error;
-        this.isAddSuccessful=false;
-      }
-    );
+    this.newItemEvent.emit(todo)
+    // this.todoservice.addTodo(todo).subscribe(
+    //   data=>{
+    //     console.log(data);
+    //     this.isAddSuccessful=true;
+    //   },
+    //   err=>{
+    //     console.log(err)
+    //     this.addErrorMessage=err.error;
+    //     this.isAddSuccessful=false;
+    //   }
+    // );
   }
 }
