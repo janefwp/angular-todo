@@ -1,6 +1,6 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { UserauthService } from '../userauth.service';
+import { UserauthService } from '../../userauth.service';
 
 
 @Component({
@@ -12,19 +12,19 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userauthservice: UserauthService
-  ) { 
-    
+  ) {
+
   }
-  
+
   ngOnInit() {
     this.getUserInfo();
   }
-  getUserInfo(){
+  getUserInfo() {
     this.userauthservice.getUserInfo().subscribe(
-      data=>{
+      data => {
         console.log(data)
       },
-      err=>{
+      err => {
         console.log(err)
       }
     )

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { UserauthService } from '../userauth.service';
+import { UserauthService } from '../../userauth.service';
 
 @Component({
   selector: 'app-register',
@@ -23,20 +23,23 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
+    return;
+  };
+
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    const {name, email,password,age}=this.registerForm.value
-    this.userauthservice.register(name, email,password, age).subscribe(
-      data=>{
+    const { name, email, password, age } = this.registerForm.value
+    this.userauthservice.register(name, email, password, age).subscribe(
+      data => {
         console.log(data);
-        this.isSuccessful=true;
-        this.isSignUpFailed=false;
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
       },
-      err=>{
+      err => {
         console.log(err)
-        this.errorMessage=err.error;
-        this.isSignUpFailed=true;
+        this.errorMessage = err.error;
+        this.isSignUpFailed = true;
       }
     )
   }
