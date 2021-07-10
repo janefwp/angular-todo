@@ -6,7 +6,7 @@ import { ProfileComponent } from './profile/profile.component'
 import { RegisterComponent } from './register/register.component'
 
 
-const userroutes: Routes = [
+const userRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component:LoginComponent},
   { path: 'register', component:RegisterComponent},
@@ -15,7 +15,7 @@ const userroutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(userroutes)
+    RouterModule.forChild(userRoutes)
   ],
   exports: [
     RouterModule

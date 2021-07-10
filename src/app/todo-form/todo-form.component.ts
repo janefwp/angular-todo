@@ -9,7 +9,7 @@ import { Output, EventEmitter } from '@angular/core';
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.css']
 })
-export class TodoFormComponent implements OnInit {
+export class TodoFormComponent {
   @Output() newItemEvent = new EventEmitter<Todo>();
   titleInput=new FormControl();
   descriptionInput = new FormControl();
@@ -19,8 +19,7 @@ export class TodoFormComponent implements OnInit {
     private todoservice: TodoService
     ) { }
   
-  ngOnInit() {
-  }
+
   addTodo(){
     const todo: Todo={
       id:0,
