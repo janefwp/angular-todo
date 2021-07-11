@@ -1,6 +1,6 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { UserauthService } from '../../userauth.service';
+import { UserauthService } from '../../services/userauth.service';
 
 
 @Component({

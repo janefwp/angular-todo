@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserStorageService } from '../user-storage.service';
+import { UserStorageService } from '../../services/user-storage.service';
 
 @Component({
   selector: 'app-top-bar',

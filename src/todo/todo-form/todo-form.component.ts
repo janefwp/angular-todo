@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Todo } from '../todos'
 import {FormControl} from '@angular/forms';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../../services/todo.service';
 import { Output, EventEmitter } from '@angular/core';
 
 @Component({
