@@ -4,12 +4,17 @@ import { Todo } from '../todo/todos'
 
 export const initialState: Array<Todo> = [];
 
-const _todoReducer = createReducer(
+export const todosReducer=createReducer(
   initialState,
-  on(listTodos, (state,{todos}) => todos)
+  on(listTodos,(state,{Todo})=>[...Todo])
+)
 
-);
+// const _todoReducer = createReducer(
+//   initialState,
+//   on(listTodos, (state,{todos}) => todos)
 
-export function todoReducer(state:Todo[], action:Action) {
-  return _todoReducer(state, action);
-}
+// );
+
+// export function todoReducer(state:Todo[], action:Action) {
+//   return _todoReducer(state, action);
+// }

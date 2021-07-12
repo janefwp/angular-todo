@@ -5,7 +5,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { todoReducer } from '../state/todo.reducers';
+import { todosReducer } from '../state/todo.reducers';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { todoReducer } from '../state/todo.reducers';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(todoReducer),
+    StoreModule.forRoot({todos: todosReducer}),
   ],
   declarations: [
     TodoComponent,

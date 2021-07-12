@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todos';
 import { TodoService } from '../services/todo.service'
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { select, Store} from '@ngrx/store';
 import { dispatch } from 'rxjs/internal/observable/range';
 import { listTodos } from 'src/state/todo.actions';
+import { selectTodos, TodoState } from 'src/state/todo.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -12,13 +13,13 @@ import { listTodos } from 'src/state/todo.actions';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  todos$: Observable<Todo>
+  todos$: Observable<Todo[]>;
+  
   constructor(
     private todoService: TodoService,
-    private store: Store<{ todos: Todo }>
+    private store: Store
   ) { 
-    this.todos$=store.select('todos');
-    console.log(this.todos$)
+    this.todos$ = this.store.select(selectTodos);
   }
 
   ngOnInit() {
@@ -26,17 +27,17 @@ export class TodoComponent implements OnInit {
       .getTodos()
       .subscribe(
         (data)=>{
-          let todos: Todo[]=[];
+          let Todo: Todo[]=[];
           data.forEach(
             (item)=>{
               let todo:Todo = JSON.parse(item.description);
               todo._id=item._id;
               todo.completed=item.completed;
-              todos.push(todo);
+              Todo.push(todo);
             }
           )
-          console.log(todos)
-          this.store.dispatch(listTodos({todos}));
+          console.log(Todo)
+          this.store.dispatch(listTodos({Todo}));
         },
          
         )
