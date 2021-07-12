@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Todo } from '../todo/todos'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const API_PATH = 'https://api-nodejs-todolist.herokuapp.com/task/';
 const token=window.sessionStorage.getItem('auth-token');
@@ -15,7 +16,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TodoService {
-  todos:Todo[]=[]
+  // todos:Todo[]=[]
   constructor(
     private http: HttpClient,
   ) { 
@@ -28,8 +29,11 @@ export class TodoService {
     
     // this.todos.push(todo);
   }
-  getTodos():Observable<any>{
-    return this.http.get(API_PATH,httpOptions)
+  getTodos():Observable<Array<Todo>>{
+    return this.http
+      .get<{data:Todo[]}>(API_PATH,httpOptions)
+      .pipe(
+        map((todos)=>todos.data))
     // return this.todos;
   }
   delTodo(todo:Todo):Observable<any> {

@@ -51,7 +51,7 @@ export class TodoListComponent implements OnInit {
   getTodos(){
     this.todoservice.getTodos().subscribe(
       data=>{
-        data.data.forEach((element:any )=> {
+        data.forEach((element:any )=> {
           console.log(element);
           let todo:Todo = JSON.parse(element.description);
           todo.completed=element.completed;
