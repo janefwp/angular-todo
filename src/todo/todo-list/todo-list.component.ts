@@ -35,7 +35,7 @@ export class TodoListComponent implements OnInit {
         console.log(data.data.completed);
         console.log(data.data._id)
         let newtodo:Todo=todo;
-        newtodo.id=data.data._id;
+        newtodo._id=data.data._id;
         newtodo.completed=data.data.completed;
         this.todos.push(newtodo);
         this.isAddSuccessful=true;
@@ -55,7 +55,7 @@ export class TodoListComponent implements OnInit {
           console.log(element);
           let todo:Todo = JSON.parse(element.description);
           todo.completed=element.completed;
-          todo.id= element._id;  
+          todo._id= element._id;  
           this.todos.push(todo); 
           this.isGetSuccessful=true;  
         });
@@ -72,7 +72,7 @@ export class TodoListComponent implements OnInit {
       data=>{
         console.log(data)
         this.isDelSuccessful=true;
-        let index:number=this.todos.findIndex(item=>todo.id===item.id);
+        let index:number=this.todos.findIndex(item=>todo._id===item._id);
         this.todos.splice(index,1);
       },
       err=>{

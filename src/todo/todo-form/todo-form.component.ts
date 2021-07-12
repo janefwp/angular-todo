@@ -22,7 +22,7 @@ export class TodoFormComponent {
 
   addTodo(){
     const todo: Todo={
-      id:0,
+      _id:0,
       title: this.titleInput.value,
       description: this.descriptionInput.value,
       completed:false,
