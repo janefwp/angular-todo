@@ -11,6 +11,8 @@ import { AboutComponent } from './about/about.component';
 
 import { UserModule } from '../user/user.module';
 import { TodoModule } from '../todo/todo.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -19,7 +21,6 @@ import { TodoModule } from '../todo/todo.module';
     TopBarComponent,
     
     AboutComponent,
-
 
   ],
   imports: [
@@ -31,6 +32,8 @@ import { TodoModule } from '../todo/todo.module';
     HttpClientModule,
     UserModule,
     TodoModule,
+    StoreModule.forRoot({}, {}),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
