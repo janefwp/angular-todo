@@ -1,11 +1,7 @@
-import { Todo } from '../todo/todos';
+
 import { createSelector } from "@ngrx/store";
+import { TodoState } from './todo.state'
+import { Todo } from '../todo/todos'
 
-export interface TodoState {
-  todos: Todo[];
-}
 
-export const selectTodos= createSelector(
-    (state: TodoState) => state.todos,
-    (todos: Todo[])=>todos
-)
+export const selectTodos = (state: TodoState) => state.todos;

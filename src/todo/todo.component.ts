@@ -4,7 +4,8 @@ import { TodoService } from '../services/todo.service'
 import { select, Store} from '@ngrx/store';
 import { dispatch } from 'rxjs/internal/observable/range';
 import { listTodos } from 'src/state/todo.actions';
-import { selectTodos, TodoState } from 'src/state/todo.selectors';
+import { selectTodos } from 'src/state/todo.selectors';
+import { TodoState } from '../state/todo.state'
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,13 +14,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  todos$: Observable<Todo[]>;
+  // todos$: Observable<Todo[]>;
   
   constructor(
     private todoService: TodoService,
-    private store: Store
+    private store: Store<TodoState>
   ) { 
-    this.todos$ = this.store.select(selectTodos);
+    // this.todos$ = this.store.select('todos');
   }
 
   ngOnInit() {
@@ -27,23 +28,18 @@ export class TodoComponent implements OnInit {
       .getTodos()
       .subscribe(
         (data)=>{
-          let Todo: Todo[]=[];
+          let alltodos: Todo[]=[];
           data.forEach(
             (item)=>{
               let todo:Todo = JSON.parse(item.description);
               todo._id=item._id;
               todo.completed=item.completed;
-              Todo.push(todo);
+              alltodos.push(todo);
             }
           )
-          console.log(Todo)
-          this.store.dispatch(listTodos({Todo}));
-        },
-         
-        )
-    
-     
-      
+          console.log(alltodos)
+          this.store.dispatch(listTodos({alltodos}));
+        }, 
+      )
   }
-
 }
