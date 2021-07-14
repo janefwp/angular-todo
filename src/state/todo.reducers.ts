@@ -4,13 +4,19 @@ import { Todo } from '../todo/todos'
 import { TodoState } from './todo.state'
 import { state } from '@angular/animations';
 
-export const initialState: ReadonlyArray<Todo> = [];
-// export const initialState: TodoState = {
-//   todos:[]
-// };
+// export const initialState: ReadonlyArray<Todo> = [];
+export const initialState: TodoState = {
+  todos:[]
+};
 export const todosReducer=createReducer(
   initialState,
-  on(listTodos,(state,{alltodos})=>( [...alltodos]))
+  on(listTodos,(state,{alltodos})=>{
+    console.log(alltodos);
+    return {
+      ...state,
+      todos: [...alltodos],
+    }
+  })
 )
 
 // const _todoReducer = createReducer(

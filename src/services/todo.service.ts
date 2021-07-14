@@ -34,7 +34,8 @@ export class TodoService {
       .get<{data:Todo[]}>(API_PATH,httpOptions)
       .pipe(
         map((todos)=>todos.data))
-    // return this.todos;
+      
+    
   }
   delTodo(todo:Todo):Observable<any> {
     return this.http.delete(API_PATH+todo._id,httpOptions)

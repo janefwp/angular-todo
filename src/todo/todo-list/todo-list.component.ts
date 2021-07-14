@@ -3,7 +3,7 @@ import { Todo } from '../todos';
 import { Observable } from 'rxjs';
 import { select, Store} from '@ngrx/store';
 import { TodoService } from '../../services/todo.service'
-import { selectTodos } from '../../state/todo.selectors';
+import { selectTodos, selectTodosFeatureState } from '../../state/todo.selectors';
 import { TodoState } from 'src/state/todo.state';
 // import { listTodos } from 'src/state/todo.actions';
 
@@ -19,14 +19,13 @@ export class TodoListComponent {
   
   constructor(
     private todoService: TodoService,
-    private store: Store<TodoState>
+    private store: Store
   ) { 
     this.todos=this.store.select(selectTodos)
     console.log(this.todos)
   }
   // this.todos=this.store.select(selectTodos);
 
-  
   // constructor(
   //   private todoservice:TodoService 
   //   ){ }

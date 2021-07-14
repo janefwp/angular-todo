@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({todos:todosReducer}),
+    StoreModule.forFeature('todos',todosReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
