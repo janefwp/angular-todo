@@ -1,7 +1,7 @@
 
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { TodoState } from './todo.state'
-import { Todo } from '../todo/todos'
+import { Todo } from '../todo/models/todo'
 import { Statement } from "@angular/compiler";
 
 

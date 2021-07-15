@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Todo } from '../todos';
+import { Todo } from '../models/todo';
 import { Observable } from 'rxjs';
 import { select, Store} from '@ngrx/store';
 import { TodoService } from '../../services/todo.service'
 import { selectTodos, selectTodosFeatureState } from '../../state/todo.selectors';
-import { TodoState } from 'src/state/todo.state';
+import { TodoState } from 'src/app/state/todo.state';
 // import { listTodos } from 'src/state/todo.actions';
 
 

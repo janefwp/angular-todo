@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { listTodos} from './todo.actions';
-import { Todo } from '../todo/todos'
+import { Todo } from '../todo/models/todo'
 import { TodoState } from './todo.state'
 import { state } from '@angular/animations';
 
@@ -14,7 +14,7 @@ export const todosReducer=createReducer(
     console.log(alltodos);
     return {
       ...state,
-      todos: [...alltodos],
+      todos: alltodos,
     }
   })
 )

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './todos';
+import { Todo } from './models/todo';
 import { TodoService } from '../services/todo.service'
 import { select, Store} from '@ngrx/store';
 import { dispatch } from 'rxjs/internal/observable/range';
-import { listTodos } from 'src/state/todo.actions';
-import { selectTodos } from 'src/state/todo.selectors';
+import { listTodos } from 'src/app/state/todo.actions';
+import { selectTodos } from 'src/app/state/todo.selectors';
 import { TodoState } from '../state/todo.state'
 import { Observable } from 'rxjs';
 
