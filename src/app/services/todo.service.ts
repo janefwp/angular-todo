@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Todo } from '../todo/models/todo'
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Todo } from '../todo/models/todo';
 
 const API_PATH = 'https://api-nodejs-todolist.herokuapp.com/task/';
 const token=window.sessionStorage.getItem('auth-token');

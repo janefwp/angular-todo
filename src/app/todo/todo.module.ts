@@ -5,9 +5,11 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { todosReducer } from '../state/todo.reducers';
+import { todosReducer } from '../state/reducers/todo.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment'; 
+import { EffectsModule } from '@ngrx/effects';
+import { TodosEffects } from '../state/effects/todos.effects';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { environment } from '../../environments/environment';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature('todos',todosReducer),
+    EffectsModule.forFeature([TodosEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

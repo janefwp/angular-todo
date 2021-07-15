@@ -3,8 +3,9 @@ import { Todo } from '../models/todo';
 import { Observable } from 'rxjs';
 import { select, Store} from '@ngrx/store';
 import { TodoService } from '../../services/todo.service'
-import { selectTodos, selectTodosFeatureState } from '../../state/todo.selectors';
-import { TodoState } from 'src/app/state/todo.state';
+import { selectTodos, selectTodosFeatureState } from '../../state/selectors/todo.selectors';
+
+import { getTodosReq } from 'src/app/state/actions/todo.actions';
 // import { listTodos } from 'src/state/todo.actions';
 
 
@@ -13,7 +14,7 @@ import { TodoState } from 'src/app/state/todo.state';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit{
   
   todos: Observable<ReadonlyArray<Todo>>;
   
@@ -22,10 +23,13 @@ export class TodoListComponent {
     private store: Store
   ) { 
     this.todos=this.store.select(selectTodos)
-    console.log(this.todos)
+  
   }
-  // this.todos=this.store.select(selectTodos);
 
+  ngOnInit(){
+    this.store.dispatch(getTodosReq())
+  }
+ 
   // constructor(
   //   private todoservice:TodoService 
   //   ){ }
