@@ -3,7 +3,11 @@
         <div class="col">
           <h2>Todo List</h2>
         </div>
-
+        <div class="col">
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Create a new todo
+          </button>
+        </div>
     </div>
     <br>
 <table class="table">
@@ -17,19 +21,22 @@
   </tr>
  
   </thead>
-  <tbody *ngIf="todos">
-    <tr *ngFor="let todo of todos | async">  
+  <tbody *ngIf="todos$">
+    <tr *ngFor="let todo of todos$ | async">  
       <td>{{todo._id}}</td>
       <td>{{todo.title}}</td>
       <td>{{todo.description}}</td>
-      <!-- <td>{{todo.completed}}</td> -->
       <td>
         <select #selected value={{todo.completed}}>
           <option value="false">false</option>
           <option value="true">true</option>
         </select>
       </td>
-
+      <td>
+        <button class="btn btn-outline-dark" (click)="delTodo(todo)">Delete</button>
+        <button class="btn btn-outline-dark" (click)="updateTodo(todo,selected.value)">Update</button>
+      </td>
     </tr>
   </tbody>
 </table>
+<app-todo-form (newItemEvent)="addTodo($event)"></app-todo-form>

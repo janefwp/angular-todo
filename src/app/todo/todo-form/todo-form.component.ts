@@ -27,6 +27,7 @@ export class TodoFormComponent {
       description: this.descriptionInput.value,
       completed:false,
     }
+    console.log(todo);
     this.newItemEvent.emit(todo)
     // this.todoservice.addTodo(todo).subscribe(
     //   data=>{
