@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserStorageService } from './user-storage.service';
 
 const AUTH_API = 'https://api-nodejs-todolist.herokuapp.com/user/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-const token=window.sessionStorage.getItem('auth-token');
-const httpOptionswithToken = {
+
+const httpOptionswithToken =(token:string)=>{
+  return {
   headers: new HttpHeaders({ 
     'Authorization': "Bearer " +token, 
     'Content-Type': 'application/json'
    })
 };
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserauthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private userStorageService: UserStorageService
+    ) { }
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API+ 'login', {
@@ -38,7 +44,7 @@ export class UserauthService {
     }, httpOptions);
   }
   getUserInfo(): Observable<any>{
-    return this.http.get(AUTH_API+'me',httpOptionswithToken)
+    return this.http.get(AUTH_API+'me',httpOptionswithToken(this.userStorageService.getToken() ?? ''))
   }
 
 }
