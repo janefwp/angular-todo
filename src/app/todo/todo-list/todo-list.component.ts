@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../models/todo';
 import { Observable } from 'rxjs';
-import { select, Store} from '@ngrx/store';
-import { TodoService } from '../../services/todo.service'
-import { selectTodos, selectTodosFeatureState } from '../../state/selectors/todo.selectors';
+import { Store} from '@ngrx/store';
+
+import { selectTodos } from '../../state/selectors/todo.selectors';
 
 import {  addTodoReq,  delTodoReq, getTodosReq, updateTodoReq } from 'src/app/state/actions/todo.actions';
 // import { listTodos } from 'src/state/todo.actions';
@@ -19,10 +19,11 @@ export class TodoListComponent implements OnInit{
   todos$: Observable<ReadonlyArray<Todo>>;
   
   constructor(
-    private todoService: TodoService,
+
     private store: Store
   ) { 
     this.todos$=this.store.select(selectTodos)
+    console.log(this.todos$)
   
   }
 
