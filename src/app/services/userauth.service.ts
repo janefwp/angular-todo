@@ -6,7 +6,10 @@ import { UserStorageService } from './user-storage.service';
 const AUTH_API = 'https://api-nodejs-todolist.herokuapp.com/user/';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  })
 };
 
 const httpOptionswithToken =(token:string)=>{
@@ -30,14 +33,14 @@ export class UserauthService {
 
   login(email: string, password: string): Observable<any> {
 
-    return this.http.post('https://api-nodejs-todolist.herokuapp.com/user/login', {
+    return this.http.post(`${AUTH_API}login`, {
       "email": email,
       "password": password
     }, httpOptions);
   }
 
   register(name: string, email: string, password: string, age:number): Observable<any> {
-    return this.http.post(AUTH_API + 'register', {
+    return this.http.post(`${AUTH_API}register`, {
       "name":name,
       "email":email,
       "password":password,
@@ -45,7 +48,7 @@ export class UserauthService {
     }, httpOptions);
   }
   getUserInfo(): Observable<any>{
-    return this.http.get(AUTH_API+'me',httpOptionswithToken(this.userStorageService.getToken() ?? ''))
+    return this.http.get(`${AUTH_API}me`,httpOptionswithToken(this.userStorageService.getToken() ?? ''))
   }
 
 }

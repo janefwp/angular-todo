@@ -41,13 +41,13 @@ export class TodoService {
   }
   delTodo(todo:Todo):Observable<any> {
     console.log(todo)
-    return this.http.delete(API_PATH+todo._id,httpOptions)
+    return this.http.delete(`${API_PATH}${todo._id}`,httpOptions)
     // const index= this.todos.findIndex(item=>item.id===todo.id);
     // return this.todos.splice(index,1);
   }
 
   updateTodo(todo:Todo,completed: string):Observable<any>{
-    return this.http.put(API_PATH+todo._id,{"completed": completed},httpOptions)
+    return this.http.put(`${API_PATH}${todo._id}`,{"completed": completed},httpOptions)
 
   }
 
