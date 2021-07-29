@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { UserState, initialUserState } from '../user.state';
-import { userRegisterFail,userRegisterReq,userRegisterSuccess } from '../actions/user.actions';
+import { userLoginReq, userLoginSucess, userRegisterFail,userRegisterReq,userRegisterSuccess } from '../actions/user.actions';
 import { User } from 'src/app/user/models/user';
 import { initialState } from '../todo.state';
 
@@ -14,16 +14,12 @@ export const userReducer=createReducer(
       }),
       on(userRegisterSuccess,(state, {name,email,password,age}):UserState=>{
         var user: User={
-            name: " ",
-            email: "",
-            password: "",
-            age:0
+            name: name,
+            email: email,
+            password: password,
+            age:age
         };
-        user.name=name;
-        user.email=email;
-        user.password=password;
-        user.age=age;
-
+    
         return {
           ...state,
           user:user,
@@ -41,5 +37,18 @@ export const userReducer=createReducer(
           registerFail: true,
           registerSuccess:false
         }
+      }),
+
+      on(userLoginReq,(state,{email,password}): UserState=>{
+        return{
+          ...state,
+          userLoading: true,
+        }         
+      }),
+      on(userLoginSucess,(state,{token,user}): UserState=>{
+        return{
+          ...state,
+          userLoading: true,
+        }         
       }),
 );

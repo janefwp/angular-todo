@@ -5,11 +5,12 @@ import { UserauthService } from 'src/app/services/userauth.service';
 import { User } from 'src/app/user/models/user';
 // import { TodoFormComponent } from 'src/app/todo/todo-form/todo-form.component';
 import { 
+    USER_LOGIN_REQ,
     USER_REG_FAIL,
     USER_REG_REQ,
     USER_REG_SUCCESS
  } from '../actions/actions'
-import { userRegisterSuccess, userRegisterFail } from '../actions/user.actions'
+import { userRegisterSuccess, userRegisterFail, userLoginSucess } from '../actions/user.actions'
 
  @Injectable()
 export class UserEffects {
@@ -19,17 +20,29 @@ export class UserEffects {
         private userauthService: UserauthService
     ){};
 
-    userRegister =createEffect(()=>{
+    userRegister = createEffect(()=>{
         return this.actions$.pipe(
             ofType(USER_REG_REQ),
             concatMap(({name,email,password,age})=>
             this.userauthService.register(name,email,password,age).pipe(
                 map(({name,email,password,age})=>userRegisterSuccess({name:name,email:email,password:password,age:age})),
-                catchError((err) => [userRegisterFail({error:err})]),
+                catchError((err) => [userRegisterFail({error:err.message})]),
             )
             ),
         )
     }
 
     );
+
+    userLogin = createEffect(()=>{
+        return this.actions$.pipe(
+            ofType(USER_LOGIN_REQ),
+            concatMap(({email,password})=>
+                this.userauthService.login(email,password).pipe(
+                    map((data)=>userLoginSucess({token:data.token, user:data.user}))
+                )
+            )
+        )
+
+    });
 }

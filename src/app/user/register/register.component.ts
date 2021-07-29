@@ -19,9 +19,9 @@ import { UserState } from 'src/app/state/user.state';
 })
 export class RegisterComponent implements OnInit {
 
-  errorMessage: Observable<String>;
-  isSuccessful: Observable<boolean>;
-  isSignUpFailed: Observable<boolean>;
+  errorMessage$: Observable<String>;
+  isSuccessful$: Observable<boolean>;
+  isSignUpFailed$: Observable<boolean>;
   
   registerForm = new FormGroup({
     name: new FormControl(),
@@ -36,9 +36,9 @@ export class RegisterComponent implements OnInit {
     private userauthservice: UserauthService,
     private store: Store
   ) { 
-    this.isSuccessful=this.store.select(selectRegisterSuccess);
-    this.errorMessage=this.store.select(selectRegisterError);
-    this.isSignUpFailed=this.store.select(selectRegisterFail);
+    this.isSuccessful$=this.store.select(selectRegisterSuccess);
+    this.errorMessage$=this.store.select(selectRegisterError);
+    this.isSignUpFailed$=this.store.select(selectRegisterFail);
     
   }
 
