@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
     this.userauthservice.login(email, password).subscribe(
       data => {
         this.userstorageservice.saveToken(data.token);
-        this.userstorageservice.saveUser(data.user)
+        this.userstorageservice.saveUser(data.user);
         this.isLogin = true;
         this.isLoginFailed = false;
         this.reloadPage();
       },
       err => {
-        console.log(err);
+        
         this.errorMessage = err.error;
         this.isLoginFailed = true;
       }

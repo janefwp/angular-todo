@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserauthService } from 'src/app/services/userauth.service';
 import { UserStorageService } from '../../services/user-storage.service';
 
 @Component({
@@ -8,9 +9,12 @@ import { UserStorageService } from '../../services/user-storage.service';
 })
 export class TopBarComponent implements OnInit {
   isLogin=false;
-  name?:string;
+  name='';
+  errorMessage='';
+  isLogout=false;
   constructor(
-    private userstorageservice: UserStorageService
+    private userstorageservice: UserStorageService,
+    private userauthservice: UserauthService,
   ) { }
   
   ngOnInit() {
@@ -22,8 +26,20 @@ export class TopBarComponent implements OnInit {
     }
   }
   logout(): void {
-    this.userstorageservice.signOut();
-    this.isLogin=false;
-    window.location.reload();
+    this.userauthservice.logout().subscribe(
+      ()=>{
+        this.userstorageservice.signOut()
+        this.isLogin=false;
+        this.isLogout=true;
+        window.location.reload();
+      },
+      err=>{
+        this.errorMessage=err;
+        this.isLogin=true;
+        this.isLogout=false;
+      }
+    )
+    
+
   }
 }

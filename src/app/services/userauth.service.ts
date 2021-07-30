@@ -47,6 +47,11 @@ export class UserauthService {
       "age":age
     }, httpOptions);
   }
+
+  logout(): Observable<any> {
+    return this.http.post(`${AUTH_API}logout`,httpOptionswithToken(this.userStorageService.getToken() ?? ''));
+  }
+
   getUserInfo(): Observable<any>{
     return this.http.get(`${AUTH_API}me`,httpOptionswithToken(this.userStorageService.getToken() ?? ''))
   }
