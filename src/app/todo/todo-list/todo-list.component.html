@@ -13,7 +13,6 @@
 <table class="table">
   <thead>
   <tr>
-    <th scope="col">#</th>
     <th scope="col">Title</th>
     <th scope="col">Description</th>
     <th scope="col">Completed</th>
@@ -23,7 +22,6 @@
   </thead>
   <tbody *ngIf="todos$">
     <tr *ngFor="let todo of todos$ | async">  
-      <td>{{todo._id}}</td>
       <td>{{todo.title}}</td>
       <td>{{todo.description}}</td>
       <td>
