@@ -8,7 +8,6 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { LoginGuard } from './services/login.guard';
 
 const routes: Routes = [
-  // { path: '', component: TodoListComponent, canActivate: [LoginGuard] },
   { path: '', component: TodoComponent, canActivate: [LoginGuard] },
   { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },

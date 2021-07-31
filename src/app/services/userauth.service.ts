@@ -8,7 +8,6 @@ const AUTH_API = 'https://api-nodejs-todolist.herokuapp.com/user/';
 const httpOptions = {
   headers: new HttpHeaders({ 
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
   })
 };
 
