@@ -2,7 +2,7 @@
 <div class="row row-cols-2 justify-content-md-center">
   <form class="text-center border border-light p-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
   
-    <p class="h4 mb-4">Sign up</p>
+    <p class="h4 mb-4" i18n="Register@@register">Register</p>
    <!-- First name -->
     <input type="text" id="name" class="form-control mb-4" formControlName="name" placeholder="Name">
     
@@ -15,17 +15,18 @@
     <!-- Age -->
     <input type="number" id="age" class="form-control mb-4" formControlName="age" placeholder="Age" aria-describedby="Age">
    
-    <!-- Sign up button -->
-    <button  color="info" block="true" class="my-4" type="submit">Sign in</button>
+    <!-- Register button -->
+    <button  color="info" block="true" class="my-4" type="submit" i18n="Login@@login">Login</button>
     <hr>
     <!-- Login -->
-    <p>Already a member?
-      <a href="" routerLink="/login">Login</a>
+    <p>
+      <ng-container i18n="Already a member@@alreadyMember">Already a member?</ng-container>
+      <a href="" routerLink="/login" i18n=" Login@@login">Login</a>
     </p>
-    <div class="alert alert-warning" *ngIf="isSignUpFailed$ |async">
-      Signup failed!<br />{{ errorMessage$ | async }}
+    <div class="alert alert-warning" *ngIf="isSignUpFailed$ |async" i18n="Register failed@@registerpFailed">
+      Register failed!<br />{{ errorMessage$ | async }}
     </div>
-    <div class="alert alert-success" *ngIf="isSuccessful$ | async">
+    <div class="alert alert-success" *ngIf="isSuccessful$ | async" i18n="Register success@@registerSuccess">
       Your registration is successful!
     </div>
   </form>

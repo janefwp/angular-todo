@@ -1,10 +1,10 @@
 
     <div class="row">
         <div class="col">
-          <h2>Todo List</h2>
+          <h2 i18n="Todo Header|Title for the todolist@@todoList">Todo List</h2>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" i18n="Create new todo@@newtodoCreate">
             Create a new todo
           </button>
         </div>
@@ -13,10 +13,10 @@
 <table class="table">
   <thead>
   <tr>
-    <th scope="col">Title</th>
-    <th scope="col">Description</th>
-    <th scope="col">Completed</th>
-    <th scope="col">Operate</th>
+    <th scope="col" i18n="Todolist Title@@todolistTitle">Title</th>
+    <th scope="col" i18n="Todolist Desc@@todolistDesc">Description</th>
+    <th scope="col" i18n="Todolist Completed@@todolistCompleted">Completed</th>
+    <th scope="col" i18n="Todolist Operate@@todolistOperate">Operate</th>
   </tr>
  
   </thead>
@@ -31,8 +31,8 @@
         </select>
       </td>
       <td>
-        <button class="btn btn-outline-dark" (click)="delTodo(todo)">Delete</button>
-        <button class="btn btn-outline-dark" (click)="updateTodo(todo,selected.value)">Update</button>
+        <button class="btn btn-outline-dark" (click)="delTodo(todo)" i18n="Todolist Delete@@todolistDel">Delete</button>
+        <button class="btn btn-outline-dark" (click)="updateTodo(todo,selected.value)" i18n="Todolist Update@@toolistUpdate">Update</button>
       </td>
     </tr>
   </tbody>

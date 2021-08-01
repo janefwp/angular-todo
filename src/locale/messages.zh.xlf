@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ngb.alert.close" datatype="html">
+        <source>Close</source>
+        <target>关闭</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/alert/alert.ts</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.slide-number" datatype="html">
+        <source> Slide <x id="INTERPOLATION" equiv-text="cused$ = new Be"/> of <x id="INTERPOLATION_1" equiv-text="private _pau"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/carousel/carousel.ts</context>
+          <context context-type="linenumber">113,117</context>
+        </context-group>
+        <note priority="1" from="description">Currently selected slide number read by screen reader</note>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.previous" datatype="html">
+        <source>Previous</source>
+        <target>前一个</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/carousel/carousel.ts</context>
+          <context context-type="linenumber">130,132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.next" datatype="html">
+        <source>Next</source>
+        <target>下一个</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/carousel/carousel.ts</context>
+          <context context-type="linenumber">146,147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-month" datatype="html">
+        <source>Select month</source>
+        <target>月</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">43,47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">47,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-year" datatype="html">
+        <source>Select year</source>
+        <target>年</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">59,62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">69,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.previous-month" datatype="html">
+        <source>Previous month</source>
+        <target>前一月</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">24,27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.next-month" datatype="html">
+        <source>Next month</source>
+        <target>后一月</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">44,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">57,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">181,182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">186,188</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">193,195</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">201,203</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source>
+        <target>第一</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">207,208</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source>
+        <target>前一个</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">214,215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source>
+        <target>后一个</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">224,228</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source>
+        <target>最后一个</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">231,232</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="(): number { re"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/progressbar/progressbar.ts</context>
+          <context context-type="linenumber">31,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.HH" datatype="html">
+        <source>HH</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.hours" datatype="html">
+        <source>Hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.MM" datatype="html">
+        <source>MM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">50,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.minutes" datatype="html">
+        <source>Minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-hours" datatype="html">
+        <source>Increment hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-hours" datatype="html">
+        <source>Decrement hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">68,70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-minutes" datatype="html">
+        <source>Increment minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">76,77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-minutes" datatype="html">
+        <source>Decrement minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">82,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.SS" datatype="html">
+        <source>SS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.seconds" datatype="html">
+        <source>Seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-seconds" datatype="html">
+        <source>Increment seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">98,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-seconds" datatype="html">
+        <source>Decrement seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.PM" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="number;
+  priv"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">118,123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.AM" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="ssor,
+    OnCh"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">141,116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.toast.close-aria" datatype="html">
+        <source>Close</source>
+        <target>关闭</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/src/toast/toast.ts</context>
+          <context context-type="linenumber">76,82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutParam" datatype="html">
+        <source> about works!
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">About param</note>
+      </trans-unit>
+      <trans-unit id="todoNav" datatype="html">
+        <source>Todo</source>
+        <target>待办事项</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Todo nav</note>
+      </trans-unit>
+      <trans-unit id="aboutNav" datatype="html">
+        <source>About</source>
+        <target>关于</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">About nav</note>
+      </trans-unit>
+      <trans-unit id="loginNav" datatype="html">
+        <source>Login</source>
+        <target>登录</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Login nav</note>
+      </trans-unit>
+      <trans-unit id="logouNav" datatype="html">
+        <source>Logout</source>
+        <target>退出登录</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Logou nav</note>
+      </trans-unit>
+      <trans-unit id="newTodo" datatype="html">
+        <source>New Todo</source>
+        <target>新待办事项</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-form/todo-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">New todo</note>
+      </trans-unit>
+      <trans-unit id="todoformTitle" datatype="html">
+        <source>Title</source>
+        <target>标题</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-form/todo-form.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Todoform Title</note>
+      </trans-unit>
+      <trans-unit id="todoformDesc" datatype="html">
+        <source>Description</source>
+        <target>描述</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-form/todo-form.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Todoform Desc</note>
+      </trans-unit>
+      <trans-unit id="todoformSumbit" datatype="html">
+        <source>Submit</source>
+        <target>提交</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-form/todo-form.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Todoform Submit</note>
+      </trans-unit>
+      <trans-unit id="todoList" datatype="html">
+        <source>Todo List</source>
+        <target>待办事项列表</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">4,7</context>
+        </context-group>
+        <note priority="1" from="description">Title for the todolist</note>
+        <note priority="1" from="meaning">Todo Header</note>
+      </trans-unit>
+      <trans-unit id="newtodoCreate" datatype="html">
+        <source> Create a new todo </source>
+        <target> 创建新事项 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+        <note priority="1" from="description">Create new todo</note>
+      </trans-unit>
+      <trans-unit id="todolistTitle" datatype="html">
+        <source>Title</source>
+        <target>标题</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <note priority="1" from="description">Todolist Title</note>
+      </trans-unit>
+      <trans-unit id="todolistDesc" datatype="html">
+        <source>Description</source>
+        <target>描述</ta>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <note priority="1" from="description">Todolist Desc</note>
+      </trans-unit>
+      <trans-unit id="todolistCompleted" datatype="html">
+        <source>Completed</source>
+        <target>是否完成</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+        <note priority="1" from="description">Todolist Completed</note>
+      </trans-unit>
+      <trans-unit id="todolistOperate" datatype="html">
+        <source>Operate</source>
+        <target>操作方式</ta>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">19,23</context>
+        </context-group>
+        <note priority="1" from="description">Todolist Operate</note>
+      </trans-unit>
+      <trans-unit id="todolistDel" datatype="html">
+        <source>Delete</source>
+        <target>删除</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+        <note priority="1" from="description">Todolist Delete</note>
+      </trans-unit>
+      <trans-unit id="toolistUpdate" datatype="html">
+        <source>Update</source>
+        <target>更新</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">35,38</context>
+        </context-group>
+        <note priority="1" from="description">Todolist Update</note>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Login</source>
+        <target>登录</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+        <note priority="1" from="description">Login</note>
+      </trans-unit>
+      <trans-unit id="notNumber" datatype="html">
+        <source>Not a member?</source>
+        <target>还不是会员？</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">Not i18na member</note>
+      </trans-unit>
+      <trans-unit id="register" datatype="html">
+        <source>Register</source>
+        <target>注册</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Register</note>
+      </trans-unit>
+      <trans-unit id="loginFailed" datatype="html">
+        <source> Login failed: <x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/> </source>
+        <target> 登录失败： <x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+        <note priority="1" from="description">Login failed</note>
+      </trans-unit>
+      <trans-unit id="profile" datatype="html">
+        <source> profile works!
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/profile/profile.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">Profile</note>
+      </trans-unit>
+      <trans-unit id="register" datatype="html">
+        <source>Register</source>
+        <target>注册</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+        <note priority="1" from="description">Register</note>
+      </trans-unit>
+      <trans-unit id="alreadyMember" datatype="html">
+        <source>Already a member?</source>
+        <target>已经是会员？</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <note priority="1" from="description">Already a member</note>
+      </trans-unit>
+      <trans-unit id="registerFailed" datatype="html">
+        <source> Register failed!<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="INTERPOLATION" equiv-text="{{ errorMessage$ | async }}"/> </source>
+        <target> 注册失败<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="INTERPOLATION" equiv-text="{{ errorMessage$ | async }}"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">27,29</context>
+        </context-group>
+        <note priority="1" from="description">Register failed</note>
+      </trans-unit>
+      <trans-unit id="registerSuccess" datatype="html">
+        <source> Your registration is successful! </source>
+        <target> 注册成功！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">30,35</context>
+        </context-group>
+        <note priority="1" from="description">Register success</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

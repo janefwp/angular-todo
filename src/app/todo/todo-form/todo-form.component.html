@@ -4,12 +4,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Todo</h5>
+        <h5 class="modal-title" id="exampleModalLabel" i18n="New todo@@newTodo">New Todo</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
-          <label for="title">Title</label>
+          <label for="title" i18n="Todoform Title@@todoformTitle">Title</label>
           <input
           type="text"
           id="title"
@@ -17,7 +17,7 @@
           [formControl]="titleInput"
           />
           <br/>
-          <label for="description">Description</label>
+          <label for="description" i18n="Todoform Desc@@todoformDesc">Description</label>
           <input
           type="text"
           id="description"
@@ -27,7 +27,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="addTodo()">Submit</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="addTodo()" i18n="Todoform Submit@@todoformSumbit">Submit</button>
         
       </div>
     </div>

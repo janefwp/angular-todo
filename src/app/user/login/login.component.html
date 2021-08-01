@@ -4,7 +4,7 @@
 
   <form class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   
-    <p class="h4 mb-4">Sign in</p>
+    <p class="h4 mb-4" i18n="Login@@login">Login</p>
   
     <!-- Email -->
     <input type="email" id="email" class="form-control mb-4" formControlName="email" placeholder="E-mail">
@@ -13,18 +13,20 @@
     <input type="password" id="password" class="form-control mb-4" formControlName="password" placeholder="Password">
   
   
-    <!-- Sign in button -->
-    <button  color="info" block="true" class="my-4" type="submit">Sign in</button>
+    <!-- Login button -->
+    <button  color="info" block="true" class="my-4" type="submit" i18n="Login@@login">Login</button>
   
     <!-- Register -->
-    <p>Not a member?
-      <a href="" routerLink="/register">Register</a>
+    <p>
+      <ng-container i18n="Not i18na member@@notNumber">Not a member?</ng-container> 
+      <a href="" routerLink="/register" i18n="Register@@register">Register</a>
     </p>
     <div class="form-group">
       <div
         class="alert alert-danger"
         role="alert"
         *ngIf="isLoginFailed"
+        i18n="Login failed@@loginFailed"
       >
         Login failed: {{ errorMessage }}
       </div>
