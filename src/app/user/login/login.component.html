@@ -26,9 +26,9 @@
         class="alert alert-danger"
         role="alert"
         *ngIf="isLoginFailed"
-        i18n="Login failed@@loginFailed"
       >
-        Login failed: {{ errorMessage }}
+      <ng-container i18n="Login failed@@loginFailed">Login failed: </ng-container> 
+        {{ errorMessage }}
       </div>
     </div>
   </form>

@@ -23,8 +23,8 @@
       <ng-container i18n="Already a member@@alreadyMember">Already a member?</ng-container>
       <a href="" routerLink="/login" i18n=" Login@@login">Login</a>
     </p>
-    <div class="alert alert-warning" *ngIf="isSignUpFailed$ |async" i18n="Register failed@@registerpFailed">
-      Register failed!<br />{{ errorMessage$ | async }}
+    <div class="alert alert-warning" *ngIf="isSignUpFailed$ |async">
+      <ng-container i18n="Register failed@@registerpFailed">Register failed!</ng-container><br />{{ errorMessage$ | async }}
     </div>
     <div class="alert alert-success" *ngIf="isSuccessful$ | async" i18n="Register success@@registerSuccess">
       Your registration is successful!

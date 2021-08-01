@@ -368,7 +368,7 @@
       </trans-unit>
       <trans-unit id="todolistDesc" datatype="html">
         <source>Description</source>
-        <target>描述</ta>
+        <target>描述</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
           <context context-type="linenumber">17,18</context>
@@ -386,7 +386,7 @@
       </trans-unit>
       <trans-unit id="todolistOperate" datatype="html">
         <source>Operate</source>
-        <target>操作方式</ta>
+        <target>操作方式</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/todo/todo-list/todo-list.component.html</context>
           <context context-type="linenumber">19,23</context>
@@ -424,7 +424,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/register/register.component.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">19,20</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/register/register.component.html</context>
@@ -448,14 +448,18 @@
           <context context-type="sourcefile">src/app/user/login/login.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
         <note priority="1" from="description">Register</note>
       </trans-unit>
       <trans-unit id="loginFailed" datatype="html">
-        <source> Login failed: <x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/> </source>
-        <target> 登录失败： <x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/> </target>
+        <source>Login failed: </source>
+        <target>登录失败： </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/login/login.component.html</context>
-          <context context-type="linenumber">30,32</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Login failed</note>
       </trans-unit>
@@ -468,15 +472,6 @@
         </context-group>
         <note priority="1" from="description">Profile</note>
       </trans-unit>
-      <trans-unit id="register" datatype="html">
-        <source>Register</source>
-        <target>注册</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/user/register/register.component.html</context>
-          <context context-type="linenumber">5,6</context>
-        </context-group>
-        <note priority="1" from="description">Register</note>
-      </trans-unit>
       <trans-unit id="alreadyMember" datatype="html">
         <source>Already a member?</source>
         <target>已经是会员？</target>
@@ -486,18 +481,18 @@
         </context-group>
         <note priority="1" from="description">Already a member</note>
       </trans-unit>
-      <trans-unit id="registerFailed" datatype="html">
-        <source> Register failed!<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="INTERPOLATION" equiv-text="{{ errorMessage$ | async }}"/> </source>
-        <target> 注册失败<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="INTERPOLATION" equiv-text="{{ errorMessage$ | async }}"/> </target>
+      <trans-unit id="registerpFailed" datatype="html">
+        <source>Register failed!</source>
+        <target>注册失败！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/register/register.component.html</context>
-          <context context-type="linenumber">27,29</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <note priority="1" from="description">Register failed</note>
       </trans-unit>
       <trans-unit id="registerSuccess" datatype="html">
         <source> Your registration is successful! </source>
-        <target> 注册成功！ </target>
+        <target> 您已经成功注册！ </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/register/register.component.html</context>
           <context context-type="linenumber">30,35</context>
