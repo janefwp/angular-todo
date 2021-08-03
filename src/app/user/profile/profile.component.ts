@@ -1,7 +1,11 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { UserauthService } from '../../services/userauth.service';
-
+import { Store} from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectUser } from 'src/app/state/selectors/user.selectors';
+import { userInfoReq } from 'src/app/state/actions/user.actions';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-profile',
@@ -10,23 +14,18 @@ import { UserauthService } from '../../services/userauth.service';
 })
 export class ProfileComponent implements OnInit {
 
+  user$: Observable<User>;
   constructor(
-    private userauthservice: UserauthService
+    private userauthservice: UserauthService,
+    private store: Store
   ) {
-
+    this.user$=this.store.select(selectUser);
   }
 
   ngOnInit() {
     this.getUserInfo();
   }
   getUserInfo() {
-    this.userauthservice.getUserInfo().subscribe(
-      data => {
-        console.log(data)
-      },
-      err => {
-        console.log(err)
-      }
-    )
+    this.store.dispatch(userInfoReq())
   }
 }

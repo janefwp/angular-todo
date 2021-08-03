@@ -8,6 +8,8 @@ export interface UserState {
     registerFail: boolean;
     loginFail: boolean;
     logoutFail: boolean;
+    userInfoSuccess: boolean,
+    userInfoFail: boolean,
     user: User;
     token: string
 }
@@ -27,6 +29,8 @@ export const initialUserState: UserState = {
     registerFail: false,
     loginFail: false,
     logoutFail: false,
+    userInfoFail: false,
+    userInfoSuccess: false,
     token: "",
     user: defaultUser
   };

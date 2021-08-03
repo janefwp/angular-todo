@@ -33,9 +33,11 @@ export class LoginComponent implements OnInit {
     this.isLoginSucceed$ = store.select(selectLoginSuccess);
     this.isLoginFailed$ = store.select(selectLoginFail);
     this.errorMessage$ = store.select(selectLoginError);
-    if(this.isLoginSucceed$){
-      this.reloadPage()
-    }
+    console.log(this.isLoginSucceed$)
+    // if(this.isLoginSucceed$){
+    //   console.log(this.isLoginSucceed$)
+    //   this.reloadPage()
+    // }
   }
   onSubmit() {
     // TODO: Use EventEmitter with form value
