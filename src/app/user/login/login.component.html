@@ -1,7 +1,6 @@
 <!-- Default form login -->
 <div class="row row-cols-2 justify-content-md-center" *ngIf=!isLogin>
 
-
   <form class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   
     <p class="h4 mb-4" i18n="Login@@login">Login</p>
@@ -25,10 +24,10 @@
       <div
         class="alert alert-danger"
         role="alert"
-        *ngIf="isLoginFailed"
+        *ngIf="isLoginFailed$ |async"
       >
       <ng-container i18n="Login failed@@loginFailed">Login failed: </ng-container> 
-        {{ errorMessage }}
+        {{ errorMessage$ }}
       </div>
     </div>
   </form>
