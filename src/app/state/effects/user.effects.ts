@@ -80,7 +80,7 @@ export class UserEffects {
 
 
 
-    userList = createEffect(()=>{
+    userInfo = createEffect(()=>{
         return this.actions$.pipe(
             ofType(USER_INFO_REQ),
             mergeMap(()=>
@@ -93,6 +93,7 @@ export class UserEffects {
                             password: data.password,
                             age:data.age
                         };
+                        console.log(user)
                         return userInfoSuccess({user:user});
                     }
                     ),
