@@ -6,14 +6,14 @@ import { UserauthService } from 'src/app/services/userauth.service';
 import { User } from 'src/app/user/models/user';
 // import { TodoFormComponent } from 'src/app/todo/todo-form/todo-form.component';
 import { 
-    USER_LIST_REQ,
+    USER_INFO_REQ,
     USER_LOGIN_REQ,
     USER_LOGOUT_REQ,
     USER_REG_FAIL,
     USER_REG_REQ,
     USER_REG_SUCCESS
  } from '../actions/actions'
-import { userRegisterSuccess, userRegisterFail, userLoginSucess, userLoginFail, userLogoutSuccess, userLogoutFail, userListSuccess, userListFail } from '../actions/user.actions'
+import { userRegisterSuccess, userRegisterFail, userLoginSucess, userLoginFail, userLogoutSuccess, userLogoutFail, userInfoSuccess, userInfoFail } from '../actions/user.actions'
 
  @Injectable()
 export class UserEffects {
@@ -47,6 +47,8 @@ export class UserEffects {
                      {
                         this.userstorageservice.saveToken(data.token);
                         this.userstorageservice.saveUser(data.user);
+                        let url: string = window.location.origin;
+                        window.location.assign(url);
                         return userLoginSucess({token:data.token, user:data.user});
                     }
                     ),
@@ -78,17 +80,24 @@ export class UserEffects {
 
 
 
-    userList = createEffect(()=>{
+    userInfo = createEffect(()=>{
         return this.actions$.pipe(
-            ofType(USER_LIST_REQ),
+            ofType(USER_INFO_REQ),
             mergeMap(()=>
-                this.userauthService.logout().pipe(
+                this.userauthService.getUserInfo().pipe(
                     map((data)=>
                      {
-                        return userListSuccess(data.user);
+                        var user: User={
+                            name: data.name,
+                            email: data.email,
+                            password: data.password,
+                            age:data.age
+                        };
+                        console.log(user)
+                        return userInfoSuccess({user:user});
                     }
                     ),
-                    catchError((err) => [userListFail({error:err.message})]),
+                    catchError((err) => [userInfoFail({error:err.message})]),
                 )
             )
         )

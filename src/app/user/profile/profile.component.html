@@ -1,3 +1,5 @@
-<p i18n="Profile@@profile">
-  profile works!
-</p>
+<div i18n="Profile@@profile" *ngIf="user$ | async as user">
+  <p>Username: <span>{{user.name }}</span></p>
+  <p>Email: <span>{{user.email }}</span></p>
+  <p>Age: <span>{{user.age }}</span></p>
+</div>

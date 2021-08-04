@@ -26,19 +26,20 @@ export class TopBarComponent implements OnInit {
     }
   }
   logout(): void {
-    this.userauthservice.logout().subscribe(
-      ()=>{
+    // this.userauthservice.logout().subscribe(
+    //   ()=>{
         this.userstorageservice.signOut()
         this.isLogin=false;
         this.isLogout=true;
         window.location.reload();
-      },
-      err=>{
-        this.errorMessage=err;
-        this.isLogin=true;
-        this.isLogout=false;
-      }
-    )
+        this.userauthservice.logout();
+      // },
+      // err=>{
+      //   this.errorMessage=err;
+      //   this.isLogin=true;
+      //   this.isLogout=false;
+    //   // }
+    // )
     
 
   }

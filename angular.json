@@ -17,6 +17,20 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "src/locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -26,6 +40,9 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "localize": false,
+            "aot": true,
+            "i18nMissingTranslation": "error",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -68,6 +85,12 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "en": {
+              "localize": ["en"]
+            },
+            "zh": {
+              "localize": ["zh"]
             }
           },
           "defaultConfiguration": "production"
@@ -80,6 +103,12 @@
             },
             "development": {
               "browserTarget": "angular-todo:build:development"
+            },
+            "en": {
+              "browserTarget": "angular-todo:build:en"
+            },
+            "zh": {
+              "browserTarget": "angular-todo:build:zh"
             }
           },
           "defaultConfiguration": "development"

@@ -1,8 +1,9 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { UserState, initialUserState } from '../user.state';
-import { userLoginFail, userLoginReq, userLoginSucess, userLogoutFail, userLogoutReq, userLogoutSuccess, userRegisterFail,userRegisterReq,userRegisterSuccess } from '../actions/user.actions';
+import { userInfoFail, userInfoReq, userInfoSuccess, userLoginFail, userLoginReq, userLoginSucess, userLogoutFail, userLogoutReq, userLogoutSuccess, userRegisterFail,userRegisterReq,userRegisterSuccess } from '../actions/user.actions';
 import { User } from 'src/app/user/models/user';
 import { initialState } from '../todo.state';
+import { state } from '@angular/animations';
 
 export const userReducer=createReducer(
     initialUserState,
@@ -73,6 +74,7 @@ export const userReducer=createReducer(
         return {
           ...state,
           userLoading: false,
+          loginSuccess:false,
           logoutSuccess: true,
         }
       }),
@@ -82,7 +84,30 @@ export const userReducer=createReducer(
           userError: error,
           userLoading: false,
           logoutFail: true,
-          loginSuccess:true
+          loginSuccess:false
+        }
+      }),
+      on(userInfoReq,(state): UserState => {
+        return {
+          ...state,
+          userLoading: true
+        }
+      }),
+      on(userInfoSuccess,(state, {user}): UserState => {
+        return {
+          ...state,
+          userLoading: false,
+          userInfoSuccess: true,
+          user: user
+        }
+      }),
+      on(userInfoFail,(state,{error}):UserState=>{
+        return {
+          ...state,
+          userError: error,
+          userLoading: false,
+          userInfoFail: true,
+          userInfoSuccess:false
         }
       }),
 );

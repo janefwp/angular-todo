@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserStorageService } from './user-storage.service';
+import { User } from '../user/models/user';
 
 const AUTH_API = 'https://api-nodejs-todolist.herokuapp.com/user/';
 
@@ -51,7 +52,7 @@ export class UserauthService {
     return this.http.post(`${AUTH_API}logout`,httpOptionswithToken(this.userStorageService.getToken() ?? ''));
   }
 
-  getUserInfo(): Observable<any>{
+  getUserInfo(): Observable<User | any>{
     return this.http.get(`${AUTH_API}me`,httpOptionswithToken(this.userStorageService.getToken() ?? ''))
   }
 
