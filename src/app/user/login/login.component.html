@@ -27,7 +27,7 @@
         *ngIf="isLoginFailed$ |async"
       >
       <ng-container i18n="Login failed@@loginFailed">Login failed: </ng-container> 
-        {{ errorMessage$ }}
+        {{ errorMessage$ | async}}
       </div>
     </div>
   </form>
