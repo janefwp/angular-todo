@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, mergeMap, switchMap,map, concatMap, exhaustMap, tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 import { TodoService } from 'src/app/services/todo.service';
-import { Todo } from 'src/app/todo/models/todo';
-import { TodoFormComponent } from 'src/app/todo/todo-form/todo-form.component';
 import { 
     TODO_LIST_REQ,
-    TODO_LIST_FAIL,
-    TODO_LIST_SUCCESS,
     TODO_ADD_REQ,
     TODO_DEL_REQ,
     TODO_UPDATE_REQ,
-    TODO_ADD_SUCCESS,
-
  } from '../actions/actions'
 import { addTodoFail, addTodoSuccess, delTodoFail, delTodoSuccess, getTodosFail, getTodosSuccess, updateTodoFail, updateTodoSuccess } from '../actions/todo.actions';
 
@@ -21,7 +16,8 @@ export class TodosEffects {
 
     constructor(
         private actions$: Actions,
-        private todoService: TodoService
+        private todoService: TodoService,
+        private toastr: ToastrService 
     ){};
 
     getTodos=createEffect(()=>{
@@ -34,9 +30,7 @@ export class TodosEffects {
             )
             ),
         )
-    }
-
-    );
+    });
     
     addTodo = createEffect(()=>
     { return this.actions$.pipe(
@@ -46,9 +40,16 @@ export class TodosEffects {
             console.log(todo)
             return this.todoService.addTodo(todo).pipe(
             tap((item)=>console.log(item)),
-            map((item)=>addTodoSuccess({addedTodo:item.data})
-                ),
-                catchError((err)=>[addTodoFail({error:err})])
+            map((item)=>{
+                this.toastr.success("Add todo successfully","Add todo");
+                return addTodoSuccess({addedTodo:item.data});
+            }),
+            catchError((err)=>{
+                this.toastr.error("Add todo failed","Add todo");
+                // eslint-disable-next-line ngrx/no-multiple-actions-in-effects
+                return [addTodoFail({error:err})]
+            }
+            )
             )
         })
     ) });
@@ -59,8 +60,15 @@ export class TodosEffects {
             ofType(TODO_DEL_REQ),
             mergeMap(({todo})=>{
                 return this.todoService.delTodo(todo).pipe(
-                    map(()=>delTodoSuccess({deledTodo:todo})),
-                    catchError((err)=>[delTodoFail({error:err})])
+                    map(()=>{
+                        this.toastr.success("Del todo succeed","Del todo")
+                        return delTodoSuccess({deledTodo:todo})
+                    }),
+                    catchError((err)=>{
+                        this.toastr.error("Del todo failed","Del todo");
+                        // eslint-disable-next-line ngrx/no-multiple-actions-in-effects
+                        return [delTodoFail({error:err})];
+                    })
                 )
 
             })
@@ -72,8 +80,15 @@ export class TodosEffects {
             ofType(TODO_UPDATE_REQ),
             concatMap(({todo,completed})=>{
                 return this.todoService.updateTodo(todo,completed).pipe(
-                    map(()=>updateTodoSuccess({todo:todo, completed:completed})),
-                    catchError((err)=>[updateTodoFail({error:err})])
+                    map(()=>{
+                        this.toastr.success("Update todo succeed","Update todo");
+                        return updateTodoSuccess({todo:todo, completed:completed})
+                }),
+                    catchError((err)=>{
+                        this.toastr.error("Update todo failed","Update todo")
+                        // eslint-disable-next-line ngrx/no-multiple-actions-in-effects
+                        return [updateTodoFail({error:err})]
+                    })
                 )
 
             })

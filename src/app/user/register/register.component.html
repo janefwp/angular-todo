@@ -24,10 +24,10 @@
       <a href="" routerLink="/login" i18n=" Login@@login">Login</a>
     </p>
     <div class="alert alert-warning" *ngIf="isSignUpFailed$ |async">
-      <ng-container i18n="Register failed@@registerpFailed">Register failed!</ng-container><br />{{ errorMessage$ | async }}
+      <ng-container i18n="Register failed@@registerpFailed">Register failed! Please try again</ng-container><br />{{ errorMessage$ | async }}
     </div>
     <div class="alert alert-success" *ngIf="isSuccessful$ | async" i18n="Register success@@registerSuccess">
-      Your registration is successful!
+      Your registration is successful! Please Login
     </div>
   </form>
   
