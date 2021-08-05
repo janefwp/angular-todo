@@ -4,7 +4,7 @@ import { AppState, initialState } from '../todo.state'
 import { getTodosReq, getTodosSuccess, getTodosFail, addTodoSuccess, addTodoFail, delTodoReq, delTodoSuccess, delTodoFail, updateTodoReq, updateTodoSuccess, updateTodoFail, addTodoReq } from '../actions/todo.actions';
 import { tsStructureIsReused } from '@angular/compiler-cli/src/transformers/util';
 
-export const todosReducer=createReducer(
+export const todosReducer = createReducer(
   initialState,
   on(getTodosReq,(state):AppState=>{
     return {

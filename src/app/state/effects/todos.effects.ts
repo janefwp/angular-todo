@@ -8,6 +8,12 @@ import {
     TODO_ADD_REQ,
     TODO_DEL_REQ,
     TODO_UPDATE_REQ,
+    TODO_ADD_SUCCESS,
+    TODO_ADD_FAIL,
+    TODO_DEL_SUCCESS,
+    TODO_DEL_FAIL,
+    TODO_UPDATE_SUCCESS,
+    TODO_UPDATE_FAIL,
  } from '../actions/actions'
 import { addTodoFail, addTodoSuccess, delTodoFail, delTodoSuccess, getTodosFail, getTodosSuccess, updateTodoFail, updateTodoSuccess } from '../actions/todo.actions';
 
@@ -40,15 +46,8 @@ export class TodosEffects {
             console.log(todo)
             return this.todoService.addTodo(todo).pipe(
             tap((item)=>console.log(item)),
-            map((item)=>{
-                this.toastr.success("Add todo successfully","Add todo");
-                return addTodoSuccess({addedTodo:item.data});
-            }),
-            catchError((err)=>{
-                this.toastr.error("Add todo failed","Add todo");
-                // eslint-disable-next-line ngrx/no-multiple-actions-in-effects
-                return [addTodoFail({error:err})]
-            }
+            map((item)=>addTodoSuccess({addedTodo:item.data})),
+            catchError((err)=>[addTodoFail({error:err})]
             )
             )
         })
@@ -60,39 +59,86 @@ export class TodosEffects {
             ofType(TODO_DEL_REQ),
             mergeMap(({todo})=>{
                 return this.todoService.delTodo(todo).pipe(
-                    map(()=>{
-                        this.toastr.success("Del todo succeed","Del todo")
-                        return delTodoSuccess({deledTodo:todo})
-                    }),
-                    catchError((err)=>{
-                        this.toastr.error("Del todo failed","Del todo");
-                        // eslint-disable-next-line ngrx/no-multiple-actions-in-effects
-                        return [delTodoFail({error:err})];
-                    })
+                    map(()=>delTodoSuccess({deledTodo:todo})),
+                    catchError((err)=>[delTodoFail({error:err})])
                 )
-
             })
         )
     });
+
     updateTodo = createEffect(()=>
     {
         return this.actions$.pipe(
             ofType(TODO_UPDATE_REQ),
             concatMap(({todo,completed})=>{
                 return this.todoService.updateTodo(todo,completed).pipe(
-                    map(()=>{
-                        this.toastr.success("Update todo succeed","Update todo");
-                        return updateTodoSuccess({todo:todo, completed:completed})
-                }),
-                    catchError((err)=>{
-                        this.toastr.error("Update todo failed","Update todo")
-                        // eslint-disable-next-line ngrx/no-multiple-actions-in-effects
-                        return [updateTodoFail({error:err})]
-                    })
+                    map(()=>updateTodoSuccess({todo:todo, completed:completed})),
+                    catchError((err)=>[updateTodoFail({error:err})])
                 )
-
             })
         )
     });
+    showAddSuccess$ = createEffect(
+        () =>
+          { return this.actions$.pipe(
+            ofType(TODO_ADD_SUCCESS),
+            tap(() => {
+              this.toastr.success("Todo add success","Add todo");
+            })
+          ) },
+        { dispatch: false }
+      );
+    
+    showAddError$ = createEffect(
+        () =>
+          { return this.actions$.pipe(
+            ofType(TODO_ADD_FAIL),
+            tap(({err}) => {
+              this.toastr.error(err,"Add todo");
+            })
+          ) },
+        { dispatch: false }
+    );  
+    showDelSuccess$ = createEffect(
+        () =>
+          { return this.actions$.pipe(
+            ofType(TODO_DEL_SUCCESS),
+            tap(() => {
+              this.toastr.success("Todo del success","Del todo");
+            })
+          ) },
+        { dispatch: false }
+      );
+    showDelFail$ = createEffect(
+        () =>
+          { return this.actions$.pipe(
+            ofType(TODO_DEL_FAIL),
+            tap(({err}) => {
+              this.toastr.error(err,"Del todo");
+            })
+          ) },
+        { dispatch: false }
+      );
+    
+    showUpdateSuccess$ = createEffect(
+        () =>
+          { return this.actions$.pipe(
+            ofType(TODO_UPDATE_SUCCESS),
+            tap(() => {
+              this.toastr.success("Todo update success","Update todo");
+            })
+          ) },
+        { dispatch: false }
+      );
+    showUpdateFail$ = createEffect(
+        () =>
+          { return this.actions$.pipe(
+            ofType(TODO_UPDATE_FAIL),
+            tap(({err}) => {
+              this.toastr.error(err,"Update todo");
+            })
+          ) },
+        { dispatch: false }
+      );
 
 }
