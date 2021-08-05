@@ -52,17 +52,6 @@ export class RegisterComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     const { name, email, password, age } = this.registerForm.value
     this.store.dispatch(userRegisterReq({name:name,email:email,password:password,age:age}));
-    // this.userauthservice.register(name, email, password, age).subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.isSuccessful = true;
-    //     this.isSignUpFailed = false;
-    //   },
-    //   err => {
-    //     console.log(err)
-    //     this.errorMessage = err.error;
-    //     this.isSignUpFailed = true;
-    //   }
-    // )
+    
   }
 }

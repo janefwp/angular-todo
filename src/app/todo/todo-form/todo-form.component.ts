@@ -27,18 +27,6 @@ export class TodoFormComponent {
       description: this.descriptionInput.value,
       completed:false,
     }
-    console.log(todo);
     this.newItemEvent.emit(todo)
-    // this.todoservice.addTodo(todo).subscribe(
-    //   data=>{
-    //     console.log(data);
-    //     this.isAddSuccessful=true;
-    //   },
-    //   err=>{
-    //     console.log(err)
-    //     this.addErrorMessage=err.error;
-    //     this.isAddSuccessful=false;
-    //   }
-    // );
   }
 }

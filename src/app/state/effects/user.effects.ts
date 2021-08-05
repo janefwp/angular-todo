@@ -93,7 +93,6 @@ export class UserEffects {
                             password: data.password,
                             age:data.age
                         };
-                        console.log(user)
                         return userInfoSuccess({user:user});
                     }
                     ),

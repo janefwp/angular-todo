@@ -47,12 +47,10 @@ export const todosReducer = createReducer(
   }),
 
   on(addTodoSuccess,(state,{addedTodo}):AppState=>{
-    console.log(addedTodo)
     let todo:Todo = JSON.parse(addedTodo.description);
     
     todo._id = addedTodo._id;
     todo.completed = addedTodo.completed;
-    console.log(todo)
     return {
       ...state,
       todos: [...state.todos,todo],
@@ -70,7 +68,6 @@ export const todosReducer = createReducer(
   }),
 
   on(delTodoReq,(state,{todo}):AppState=>{
-    console.log(todo)
     return {
       ...state,
       todosLoading: true

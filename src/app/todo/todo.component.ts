@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent  {
-  // todos$: Observable<Todo[]>;
   
   constructor(
    
   ) { 
-    // this.todos$ = this.store.select('todos');
+    
   }
 }
