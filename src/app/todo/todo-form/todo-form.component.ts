@@ -12,27 +12,18 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class TodoFormComponent {
   @Output() newItemEvent = new EventEmitter<Todo>();
-  titleInput = new FormControl('',Validators.required);
-  descriptionInput = new FormControl('', Validators.required);
-  deadlineInput = new FormControl(new Date(), Validators.required);
-  isAddSuccessful = false;
-  addErrorMessage="";
-  constructor(
-    private todoservice: TodoService
-    ) { }
-  
+  todo = {title:'', description:'', deadline: new Date()}; 
 
   addTodo(){
-    let date = Object.values(this.deadlineInput.value);
+    let date = Object.values(this.todo.deadline);
     
-    const todo: Todo={
+    const todoData: Todo={
       _id:0,
-      title: this.titleInput.value,
-      description: this.descriptionInput.value,
+      title: this.todo.title,
+      description: this.todo.description,
       deadline: date.join('-'),
       completed:false,
     }
-    
-    this.newItemEvent.emit(todo)
+    this.newItemEvent.emit(todoData)
   }
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoComponent } from './todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment'; 
 import { EffectsModule } from '@ngrx/effects';
 import { TodosEffects } from '../state/effects/todos.effects';
+import { TodoFormComponent } from './todo-form/todo-form.component';
 
 @NgModule({
   imports: [
