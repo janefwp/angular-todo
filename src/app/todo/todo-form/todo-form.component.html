@@ -8,28 +8,71 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <label for="title" i18n="Todoform Title@@todoformTitle">Title</label>
-          <input
-          type="text"
-          id="title"
-          class="form-control"
-          [formControl]="titleInput"
-          />
-          <br/>
-          <label for="description" i18n="Todoform Desc@@todoformDesc">Description</label>
-          <input
-          type="text"
-          id="description"
-          class="form-control"
-          [formControl]="descriptionInput"
-          />
+        <form #todoForm="ngForm" appIdentityRevealed (ngSubmit)="todoForm.resetForm({})">
+            <div class="cross-validation" [class.cross-validation-error]="todoForm.errors?.identityRevealed && (todoForm.touched || todoForm.dirty)">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-control"
+                      required 
+                      [(ngModel)]="todo.title" #title="ngModel">
+      
+                <div *ngIf="title.invalid && (title.dirty || title.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="title.errors?.required" i18n="Input required@@inputRequired">
+                    Name is required.
+                  </div>
+      
+                </div>
+              </div>
+      
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text"
+                       id="description"
+                       name="description"
+                       class="form-control"
+                       required
+                       #description="ngModel"
+                       [(ngModel)]="todo.description"
+                >
+      
+                <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                  <div *ngIf="description.errors?.required" i18n="Input required@@inputRequired">
+                    Description is required.
+                  </div>
+                </div>
+              </div>
+            
+      
+            <div class="form-group">
+              <label for="deadline">Deadline</label>
+              <input 
+                type="text"
+                id="deadline"
+                required
+                class="form-control"
+                placeholder="yyyy-mm-dd" 
+                name="deadline"
+                ngbDatepicker #d="ngbDatepicker"
+                #deadline="ngModel"
+                [(ngModel)]="todo.deadline"
+              >
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+              <div *ngIf="deadline.invalid && (deadline.dirty || deadline.touched)"
+                  class="alert alert-danger">
+                <div *ngIf="deadline.errors?.required" i18n="Input required@@inputRequired">
+                  Deadline is required.
+                </div>
+              </div>
+            </div>
+              <button type="submit"
+                    [disabled]="todoForm.invalid" data-bs-dismiss="modal" (click)="addTodo()" i18n="Todoform Submit@@todoformSumbit">Submit</button>
+            </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="addTodo()" i18n="Todoform Submit@@todoformSumbit">Submit</button>
-        
-      </div>
+      
     </div>
   </div>
 </div>

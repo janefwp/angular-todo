@@ -15,6 +15,7 @@
   <tr>
     <th scope="col" i18n="Todolist Title@@todolistTitle">Title</th>
     <th scope="col" i18n="Todolist Desc@@todolistDesc">Description</th>
+    <th scope="col" i18n="Todolist Deadline@@todolistDeadline">Deadline</th>
     <th scope="col" i18n="Todolist Completed@@todolistCompleted">Completed</th>
     <th scope="col" i18n="Todolist Operate@@todolistOperate">Operate</th>
   </tr>
@@ -24,6 +25,7 @@
     <tr *ngFor="let todo of todos$ | async">  
       <td>{{todo.title}}</td>
       <td>{{todo.description}}</td>
+      <td>{{todo.deadline}}</td>
       <td>
         <select #selected value={{todo.completed}}>
           <option value="false">false</option>

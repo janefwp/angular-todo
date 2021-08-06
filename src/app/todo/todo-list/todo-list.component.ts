@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../models/todo';
 import { Observable } from 'rxjs';
 import { Store} from '@ngrx/store';
+import {NgxLoggerLevel, NGXLogger} from 'ngx-logger';
 
 import { selectTodos } from '../../state/selectors/todo.selectors';
 
 import {  addTodoReq,  delTodoReq, getTodosReq, updateTodoReq } from 'src/app/state/actions/todo.actions';
-// import { listTodos } from 'src/state/todo.actions';
 
 
 @Component({
@@ -19,11 +19,11 @@ export class TodoListComponent implements OnInit{
   todos$: Observable<ReadonlyArray<Todo>>;
   
   constructor(
-
+    private logger: NGXLogger,
     private store: Store
   ) { 
     this.todos$=this.store.select(selectTodos)
-    console.log(this.todos$)
+    this.logger.info(this.todos$)
   
   }
 
@@ -31,18 +31,8 @@ export class TodoListComponent implements OnInit{
     this.store.dispatch(getTodosReq())
   }
 
-  // // todos: Todo[]=[];
-  // isAddSuccessful=false;
-  // isGetSuccessful=false;
-  // isDelSuccessful=false;
-  // isUpdateSuccessful=false;
-  // addErrorMessage="";
-  // getErrorMessage="";
-  // delErrorMessage="";
-  // updateErrorMesage="";
 
   addTodo(todo:Todo){
-    console.log(todo)
     this.store.dispatch(addTodoReq({todo}))
   }
 

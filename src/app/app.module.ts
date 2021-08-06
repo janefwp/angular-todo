@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoggerModule, NgxLoggerLevel, LoggerConfig } from 'ngx-logger'; 
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
-
 import { AboutComponent } from './components/about/about.component';
-
 import { UserModule } from './user/user.module';
 import { TodoModule } from './todo/todo.module';
 import { StoreModule } from '@ngrx/store';
@@ -35,6 +35,10 @@ import { EffectsModule } from '@ngrx/effects';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    LoggerModule.forRoot({
+      level: NgxLoggerLevel.INFO,
+      serverLogLevel: NgxLoggerLevel.INFO,
+    }),
     UserModule,
     TodoModule,
     StoreModule.forRoot({}, {}),

@@ -41,11 +41,8 @@ export class TodosEffects {
     addTodo = createEffect(()=>
     { return this.actions$.pipe(
         ofType(TODO_ADD_REQ),
-        tap((todo) => console.log(todo)),
         concatMap(({todo})=>{
-            console.log(todo)
             return this.todoService.addTodo(todo).pipe(
-            tap((item)=>console.log(item)),
             map((item)=>addTodoSuccess({addedTodo:item.data})),
             catchError((err)=>[addTodoFail({error:err})]
             )

@@ -22,25 +22,15 @@ export class TopBarComponent implements OnInit {
     if(this.isLogin){
       const user=this.userstorageservice.getUser();
       this.name=user.name;
-      console.log(this.name)
+    
     }
   }
   logout(): void {
-    // this.userauthservice.logout().subscribe(
-    //   ()=>{
         this.userstorageservice.signOut()
         this.isLogin=false;
         this.isLogout=true;
         window.location.reload();
         this.userauthservice.logout();
-      // },
-      // err=>{
-      //   this.errorMessage=err;
-      //   this.isLogin=true;
-      //   this.isLogout=false;
-    //   // }
-    // )
-    
-
+      
   }
 }
