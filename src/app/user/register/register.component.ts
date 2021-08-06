@@ -29,9 +29,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl(),
     age: new FormControl()
   });
-  // isSuccessful = false;
-  // isSignUpFailed = false;
-  // errorMessage = '';
+
   constructor(
     private userauthservice: UserauthService,
     private store: Store

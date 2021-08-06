@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Todo } from '../models/todo'
-import {FormControl} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { TodoService } from '../../services/todo.service';
 import { Output, EventEmitter } from '@angular/core';
 
@@ -11,8 +12,9 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class TodoFormComponent {
   @Output() newItemEvent = new EventEmitter<Todo>();
-  titleInput=new FormControl();
-  descriptionInput = new FormControl();
+  titleInput = new FormControl('',Validators.required);
+  descriptionInput = new FormControl('', Validators.required);
+  deadlineInput = new FormControl(new Date(), Validators.required);
   isAddSuccessful = false;
   addErrorMessage="";
   constructor(
@@ -21,12 +23,16 @@ export class TodoFormComponent {
   
 
   addTodo(){
+    let date = Object.values(this.deadlineInput.value);
+    
     const todo: Todo={
       _id:0,
       title: this.titleInput.value,
       description: this.descriptionInput.value,
+      deadline: date.join('-'),
       completed:false,
     }
+    
     this.newItemEvent.emit(todo)
   }
 }

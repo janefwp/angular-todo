@@ -8,14 +8,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form >
           <label for="title" i18n="Todoform Title@@todoformTitle">Title</label>
           <input
           type="text"
           id="title"
           class="form-control"
           [formControl]="titleInput"
+          required
           />
+          <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)"
+          class="alert alert-danger">
+
+            <div *ngIf="titleInput.errors?.required">
+              Title is required.
+            </div>
+          </div>
           <br/>
           <label for="description" i18n="Todoform Desc@@todoformDesc">Description</label>
           <input
@@ -23,7 +31,37 @@
           id="description"
           class="form-control"
           [formControl]="descriptionInput"
+          required
           />
+          <div *ngIf="descriptionInput.invalid && (descriptionInput.dirty || descriptionInput.touched)"
+          class="alert alert-danger">
+
+            <div *ngIf="descriptionInput.errors?.required">
+              Description is required.
+            </div>
+          </div>
+
+          <label for="deadline" i18n="Todoform Desc@@todoformDesc">Deadline</label>
+          <input 
+          type="text"
+            id="deadline"
+            class="form-control" 
+            placeholder="yyyy-mm-dd" 
+            name="dp"
+            ngbDatepicker #d="ngbDatepicker"
+            [formControl]="deadlineInput"
+            required
+            >
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+          <div *ngIf="deadlineInput.invalid && (deadlineInput.dirty || deadlineInput.touched)"
+          class="alert alert-danger">
+
+            <div *ngIf="deadlineInput.errors?.required">
+              Deadline is required.
+            </div>
+          </div>
         </form>
       </div>
       <div class="modal-footer">

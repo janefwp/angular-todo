@@ -19,6 +19,7 @@ export const todosReducer = createReducer(
       let todo:Todo = JSON.parse(item.description);
           todo.completed=item.completed;
           todo._id= item._id;  
+          
           todos.push(todo);         
     });
     return {
