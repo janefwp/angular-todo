@@ -6,6 +6,7 @@ button.calendar:active {
   background-size: 23px;
   background-position: center;
 }
+
 /* Sortable table demo */
 
 th[sortable] {

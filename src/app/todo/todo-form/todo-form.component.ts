@@ -1,9 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { Todo } from '../models/todo'
-import {FormControl, Validators} from '@angular/forms';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import { TodoService } from '../../services/todo.service';
+import { Todo } from '../models/todo';
 import { Output, EventEmitter } from '@angular/core';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-todo-form',
@@ -11,8 +10,37 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent {
+  constructor(private modalService: NgbModal) {}
+
   @Output() newItemEvent = new EventEmitter<Todo>();
   todo = {title:'', description:'', deadline: new Date()}; 
+  IsmodelShow = false;
+  showConfirmMessage(
+    message: string,
+    showCancelButton = true,
+    ){
+    return Swal.fire({
+      text: message,
+      showCancelButton: showCancelButton,
+    }).then((result)=>{
+      if(result.isConfirmed) {
+        this.IsmodelShow = true;
+        let url: string = window.location.origin;
+        window.location.assign(url);
+      }
+      else if(result.dismiss === Swal.DismissReason.cancel){
+        this.IsmodelShow = false;
+      }
+    })
+  }
+  closeDialog(){
+    this.showConfirmMessage(
+    
+      'Are you sure to close this task?',
+      true,
+      
+    )
+  }
 
   addTodo(){
     let date = Object.values(this.todo.deadline);
