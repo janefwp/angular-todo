@@ -8,10 +8,10 @@ import { UserStorageService } from '../../services/user-storage.service';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-  isLogin=false;
-  name='';
-  errorMessage='';
-  isLogout=false;
+  isLogin = false;
+  name = '';
+  errorMessage = '';
+  isLogout = false;
   constructor(
     private userstorageservice: UserStorageService,
     private userauthservice: UserauthService,

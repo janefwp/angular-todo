@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { selectUser } from 'src/app/state/selectors/user.selectors';
 import { userInfoReq } from 'src/app/state/actions/user.actions';
 import { User } from '../models/user';
+import { selectLoading } from 'src/app/state/selectors/todo.selectors';
 
 @Component({
   selector: 'app-profile',
@@ -15,11 +16,14 @@ import { User } from '../models/user';
 export class ProfileComponent implements OnInit {
 
   user$: Observable<User>;
+  isLoading$: Observable<boolean>;
   constructor(
     private userauthservice: UserauthService,
     private store: Store
   ) {
-    this.user$=this.store.select(selectUser);
+    this.user$ = this.store.select(selectUser);
+    this.isLoading$ = this.store.select(selectLoading)
+    console.log(this.isLoading$)
   }
 
   ngOnInit() {

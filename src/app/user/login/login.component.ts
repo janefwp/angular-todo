@@ -8,6 +8,7 @@ import { selectLoginError, selectLoginFail, selectLoginSuccess } from 'src/app/s
 import { ThisReceiver } from '@angular/compiler';
 import { dispatch } from 'rxjs/internal/observable/pairs';
 import { userLoginReq } from 'src/app/state/actions/user.actions';
+import { selectLoading } from 'src/app/state/selectors/todo.selectors';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +16,11 @@ import { userLoginReq } from 'src/app/state/actions/user.actions';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  isLogin=false;
-  isLoginSucceed$ :Observable<boolean>;
-  isLoginFailed$ :Observable<boolean>;
-  errorMessage$ :Observable<String>;
+  isLogin = false;
+  isLoginSucceed$: Observable<boolean>;
+  isLoginFailed$: Observable<boolean>;
+  errorMessage$: Observable<String>;
+  isLoading$: Observable<boolean>;
 
   loginForm = new FormGroup({
     email: new FormControl(),
@@ -30,9 +32,11 @@ export class LoginComponent implements OnInit {
     private userstorageservice: UserStorageService,
     private store:Store
   ) { 
-    this.isLoginSucceed$ = store.select(selectLoginSuccess);
-    this.isLoginFailed$ = store.select(selectLoginFail);
-    this.errorMessage$ = store.select(selectLoginError);
+    this.isLoginSucceed$ = this.store.select(selectLoginSuccess);
+    this.isLoginFailed$ = this.store.select(selectLoginFail);
+    this.errorMessage$ = this.store.select(selectLoginError);
+    this.isLoading$ = this.store.select(selectLoading)
+
   }
   onSubmit() {
     // TODO: Use EventEmitter with form value

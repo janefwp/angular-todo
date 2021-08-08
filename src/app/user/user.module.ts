@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { UserEffects } from '../state/effects/user.effects';
 import { userReducer } from '../state/reducers/user.reducers'
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { userReducer } from '../state/reducers/user.reducers'
     FormsModule,
     ReactiveFormsModule,
     UserRouteRoutes,
+    SharedModule,
     StoreModule.forFeature('user',userReducer),
     EffectsModule.forFeature([UserEffects]),
   ],

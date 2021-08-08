@@ -19,7 +19,7 @@
     <th scope="col" i18n="Todolist Completed@@todolistCompleted">Completed</th>
     <th scope="col" i18n="Todolist Operate@@todolistOperate">Operate</th>
   </tr>
- 
+  <app-loader *ngIf="isLoading$ | async"></app-loader>
   </thead>
   <tbody *ngIf="(todos$ | async)?.length !== 0 ">
     <tr *ngFor="let todo of todos$ | async">  
