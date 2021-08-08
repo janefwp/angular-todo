@@ -5,4 +5,7 @@ export interface User {
     age:number
   }
 
-  
+export interface Error {
+  code: number;
+  message: string;
+}
