@@ -31,11 +31,6 @@ export class TodoListComponent implements OnInit{
     this.store.dispatch(getTodosReq())
   }
 
-
-  addTodo(todo:Todo){
-    this.store.dispatch(addTodoReq({todo}))
-  }
-
   delTodo(todo:Todo){
     this.store.dispatch(delTodoReq({todo}))
   }

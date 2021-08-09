@@ -3,6 +3,8 @@ import { Todo } from '../models/todo';
 import { Output, EventEmitter } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
+import { Store } from '@ngrx/store';
+import { addTodoReq } from 'src/app/state/actions/todo.actions';
 
 @Component({
   selector: 'app-todo-form',
@@ -10,7 +12,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent {
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private store: Store
+    ) {}
 
   @Output() newItemEvent = new EventEmitter<Todo>();
   todo = {title:'', description:'', deadline: new Date()}; 
@@ -52,6 +57,6 @@ export class TodoFormComponent {
       deadline: date.join('-'),
       completed:false,
     }
-    this.newItemEvent.emit(todoData)
+    this.store.dispatch(addTodoReq({todo: todoData}))
   }
 }
