@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
   ) {
     this.user$ = this.store.select(selectUser);
     this.isLoading$ = this.store.select(selectLoading)
-    console.log(this.isLoading$)
   }
 
   ngOnInit() {

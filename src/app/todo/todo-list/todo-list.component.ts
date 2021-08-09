@@ -23,7 +23,6 @@ export class TodoListComponent implements OnInit{
     private store: Store
   ) { 
     this.todos$ = this.store.select(selectTodos)
-    this.logger.info(this.todos$)
     this.isLoading$ = this.store.select(selectLoading);
   
   }
