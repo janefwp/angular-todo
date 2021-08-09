@@ -1,6 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Todo } from '../models/todo';
-import { Output, EventEmitter } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { Store } from '@ngrx/store';
@@ -17,9 +16,29 @@ export class TodoFormComponent {
     private store: Store
     ) {}
 
-  @Output() newItemEvent = new EventEmitter<Todo>();
   todo = {title:'', description:'', deadline: new Date()}; 
-  IsmodelShow = false;
+
+  @ViewChild('todoModal') todoModal: any;
+  closeResult: string | undefined;
+  
+  open() {
+    this.modalService.open(this.todoModal, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
   showConfirmMessage(
     message: string,
     showCancelButton = true,
@@ -27,14 +46,10 @@ export class TodoFormComponent {
     return Swal.fire({
       text: message,
       showCancelButton: showCancelButton,
+
     }).then((result)=>{
       if(result.isConfirmed) {
-        this.IsmodelShow = true;
-        let url: string = window.location.origin;
-        window.location.assign(url);
-      }
-      else if(result.dismiss === Swal.DismissReason.cancel){
-        this.IsmodelShow = false;
+        this.modalService.dismissAll()
       }
     })
   }
@@ -58,5 +73,6 @@ export class TodoFormComponent {
       completed:false,
     }
     this.store.dispatch(addTodoReq({todo: todoData}))
+    this.modalService.dismissAll()
   }
 }

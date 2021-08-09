@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Todo } from '../models/todo';
 import { Observable } from 'rxjs';
 import { Store} from '@ngrx/store';
@@ -7,6 +7,7 @@ import {NgxLoggerLevel, NGXLogger} from 'ngx-logger';
 import { selectLoading, selectTodos } from '../../state/selectors/todo.selectors';
 
 import {  addTodoReq,  delTodoReq, getTodosReq, updateTodoReq } from 'src/app/state/actions/todo.actions';
+import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,7 +15,8 @@ import {  addTodoReq,  delTodoReq, getTodosReq, updateTodoReq } from 'src/app/st
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit{
-  
+  @ViewChild(TodoFormComponent)
+  private todoFormComponent!: TodoFormComponent;
   todos$: Observable<ReadonlyArray<Todo>>;
   isLoading$: Observable<boolean>;
 
@@ -29,6 +31,9 @@ export class TodoListComponent implements OnInit{
 
   ngOnInit(){
     this.store.dispatch(getTodosReq())
+  }
+  openModal(){
+    this.todoFormComponent.open()
   }
 
   delTodo(todo:Todo){
