@@ -15,6 +15,7 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit{
+  
   @ViewChild(TodoFormComponent)
   private todoFormComponent!: TodoFormComponent;
   todos$: Observable<ReadonlyArray<Todo>>;
