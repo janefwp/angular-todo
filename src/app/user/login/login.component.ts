@@ -4,11 +4,8 @@ import { UserStorageService } from '../../services/user-storage.service';
 import { UserauthService } from '../../services/userauth.service';
 import { Store} from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectLoginError, selectLoginFail, selectLoginSuccess } from 'src/app/state/selectors/user.selectors';
-import { ThisReceiver } from '@angular/compiler';
-import { dispatch } from 'rxjs/internal/observable/pairs';
+import { selectLoginError, selectLoginFail, selectLoginSuccess, selectUserLoading } from 'src/app/state/selectors/user.selectors';
 import { userLoginReq } from 'src/app/state/actions/user.actions';
-import { selectLoading } from 'src/app/state/selectors/todo.selectors';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.isLoginSucceed$ = this.store.select(selectLoginSuccess);
     this.isLoginFailed$ = this.store.select(selectLoginFail);
     this.errorMessage$ = this.store.select(selectLoginError);
-    this.isLoading$ = this.store.select(selectLoading)
+    this.isLoading$ = this.store.select(selectUserLoading)
 
   }
   onSubmit() {
