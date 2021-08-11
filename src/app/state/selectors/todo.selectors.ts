@@ -12,6 +12,10 @@ export const selectTodosFeatureState= createFeatureSelector<AppState>('todos');
 export const selectTodos = createSelector(
     selectTodosFeatureState,
     (state:AppState)=> state.todos
-    )
+    );
+export const selectLoading = createSelector(
+        selectTodosFeatureState,
+        (state:AppState)=> state.todosLoading
+        )
 
 

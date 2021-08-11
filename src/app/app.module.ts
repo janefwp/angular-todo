@@ -18,15 +18,16 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { SharedModule } from './shared/shared.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    
     AboutComponent,
-
+    
   ],
   imports: [
     BrowserModule,
@@ -47,8 +48,10 @@ import { EffectsModule } from '@ngrx/effects';
     EffectsModule.forRoot([]),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

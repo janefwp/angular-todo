@@ -1,9 +1,9 @@
-import { Component, OnInit} from '@angular/core';
-import { Todo } from '../models/todo'
-import {FormControl, Validators} from '@angular/forms';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import { TodoService } from '../../services/todo.service';
-import { Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
+import { Todo } from '../models/todo';
+import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
+import { Store } from '@ngrx/store';
+import { addTodoReq } from 'src/app/state/actions/todo.actions';
 
 @Component({
   selector: 'app-todo-form',
@@ -11,8 +11,59 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent {
-  @Output() newItemEvent = new EventEmitter<Todo>();
+  constructor(
+    private modalService: NgbModal,
+    private store: Store
+    ) {}
+
   todo = {title:'', description:'', deadline: new Date()}; 
+
+  @ViewChild('todoModal') todoModal: any;
+  closeResult: string | undefined;
+  modalRef!: NgbModalRef;
+  
+  open() {
+    this.modalRef = this.modalService.open(this.todoModal, {ariaLabelledBy: 'modal-basic-title'});
+    this.modalRef.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+    
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  showConfirmMessage(
+    message: string,
+    showCancelButton = true,
+    ){
+    return Swal.fire({
+      text: message,
+      showCancelButton: showCancelButton,
+
+    }).then((result)=>{
+      if(result.isConfirmed) {
+        this.modalRef.close();
+      }
+    })
+  }
+  closeDialog(){
+    this.showConfirmMessage(
+    
+      'Are you sure to close this task?',
+      true,
+      
+    )
+  }
 
   addTodo(){
     let date = Object.values(this.todo.deadline);
@@ -24,6 +75,7 @@ export class TodoFormComponent {
       deadline: date.join('-'),
       completed:false,
     }
-    this.newItemEvent.emit(todoData)
+    this.store.dispatch(addTodoReq({todo: todoData}))
+    this.modalRef.close()
   }
 }

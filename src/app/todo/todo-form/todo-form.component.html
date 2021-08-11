@@ -1,11 +1,11 @@
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<ng-template #todoModal let-modal>
+<!-- <div class="modal fade" id="todoModal" tabindex="-1" data-target="#modal" aria-labelledby="todoModalLabel" aria-hidden="true" [hidden]="IsmodelShow"> -->
+
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" i18n="New todo@@newTodo">New Todo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="todoModalLabel" i18n="New todo@@newTodo">New Todo</h5>
+        <button type="button" class="btn-close" aria-label="Close" aria-label="Close" (click)="closeDialog()"></button>
       </div>
       <div class="modal-body">
         <form #todoForm="ngForm" appIdentityRevealed (ngSubmit)="todoForm.resetForm({})">
@@ -36,7 +36,7 @@
                        [(ngModel)]="todo.description"
                 >
       
-                <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
                   <div *ngIf="description.errors?.required" i18n="Input required@@inputRequired">
                     Description is required.
                   </div>
@@ -46,33 +46,34 @@
       
             <div class="form-group">
               <label for="deadline">Deadline</label>
-              <input 
-                type="text"
-                id="deadline"
-                required
-                class="form-control"
-                placeholder="yyyy-mm-dd" 
-                name="deadline"
-                ngbDatepicker #d="ngbDatepicker"
-                #deadline="ngModel"
-                [(ngModel)]="todo.deadline"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              <div class="input-group">
+                <input 
+                  id="dealine" 
+                  class="form-control" 
+                  placeholder="yyyy-mm-dd" 
+                  name="dealine" 
+                  ngbDatepicker #dealine="ngbDatepicker"
+                  #deadline="ngModel"
+                  [(ngModel)]="todo.deadline"
+                  required
+                >  
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dealine.toggle()" type="button"></button>
+                </div>
               </div>
               <div *ngIf="deadline.invalid && (deadline.dirty || deadline.touched)"
-                  class="alert alert-danger">
-                <div *ngIf="deadline.errors?.required" i18n="Input required@@inputRequired">
+                class="alert alert-danger">
+                <div i18n="Input required@@inputRequired">
                   Deadline is required.
                 </div>
               </div>
             </div>
+          <br />
               <button type="submit"
                     [disabled]="todoForm.invalid" data-bs-dismiss="modal" (click)="addTodo()" i18n="Todoform Submit@@todoformSumbit">Submit</button>
             </div>
         </form>
       </div>
       
-    </div>
-  </div>
-</div>
+
+</ng-template>

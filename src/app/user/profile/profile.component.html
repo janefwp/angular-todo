@@ -1,4 +1,7 @@
+<app-loader *ngIf="(isLoading$ | async)"></app-loader>
+
 <div i18n="Profile@@profile" *ngIf="user$ | async as user">
+  
   <p>Username: <span>{{user.name }}</span></p>
   <p>Email: <span>{{user.email }}</span></p>
   <p>Age: <span>{{user.age }}</span></p>
